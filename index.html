@@ -10,9 +10,12 @@
 <body>
     <p>Redireccionando...</p>
     <script>
-        window.location.replace("./examples/dashboard.html");
+        let token = localStorage.getItem("token");
+        if (token)
+            window.location.replace("./examples/dashboard.html");
+        else
+            alert("No estas logeado gato!");
     </script>
-
 </body>
 
 </html>
