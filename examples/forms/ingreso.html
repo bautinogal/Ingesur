@@ -349,7 +349,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Estadísticas</a>
+                        <a class="navbar-brand" href="javascript:;">Ingreso de Equipos</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -359,7 +359,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" value="" class="form-control" placeholder="Buscar...">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="nc-icon nc-zoom-split"></i>
@@ -404,6 +404,7 @@
             <!-- V: Contenido Principal -->
             <div class="content">
                 <div class="row">
+                    <!-- V: Datos del despachante -->
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="card-header ">
@@ -495,6 +496,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- V: Datos del que recibe y del ref de seguridad -->
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="card-header ">
@@ -556,229 +558,220 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">Teléfono</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <p class="form-control-static">011-49450343</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">Mail</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <p class="form-control-static">referente@laempresa.com</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- V: Tabla donde cargo los equipos -->
                     <div class="col-md-12">
-                        <div class="card ">
-                            <div class="card-header ">
-                                <h4 class="card-title">Form Elements</h4>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"> Equipos recibidos</h4>
                             </div>
-                            <div class="card-body ">
-                                <form method="get" action="/" class="form-horizontal">
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">With help</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="form-text">A block of help text that breaks onto a new line.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Password</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Placeholder</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="placeholder">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Disabled</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="Disabled input here.." disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Static control</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group">
-                                                <p class="form-control-static">hello@creative-tim.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Checkboxes and radios</label>
-                                        <div class="col-sm-10 checkbox-radios">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox">
-                          <span class="form-check-sign"></span>
-                          First Checkbox
-                        </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox">
-                          <span class="form-check-sign"></span>
-                          Second Checkbox
-                        </label>
-                                            </div>
-                                            <div class="form-check-radio">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadioz" id="exampleRadios11" value="option1">
-                          First Radio
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                            <div class="form-check-radio">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadioz" id="exampleRadios12" value="option2" checked="">
-                          Second Radio
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Inline checkboxes</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-check form-check-inline">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" checked>
-                          <span class="form-check-sign"></span>
-                          a
-                        </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox">
-                          <span class="form-check-sign"></span>
-                          b
-                        </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox">
-                          <span class="form-check-sign"></span>
-                          c
-                        </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card ">
-                            <div class="card-header ">
-                                <h4 class="card-title">Input Variants</h4>
-                            </div>
-                            <div class="card-body ">
-                                <form method="get" action="/" class="form-horizontal">
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Custom Checkboxes &amp; radios</label>
-                                        <div class="col-sm-4 col-sm-offset-1 checkbox-radios">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox">
-                          <span class="form-check-sign"></span>
-                          Unchecked
-                        </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" checked>
-                          <span class="form-check-sign"></span>
-                          Checked
-                        </label>
-                                            </div>
-                                            <div class="form-check disabled">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" disabled>
-                          <span class="form-check-sign"></span>
-                          Disabled Unchecked
-                        </label>
-                                            </div>
-                                            <div class="form-check disabled">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" disabled>
-                          <span class="form-check-sign"></span>
-                          Disabled Checked
-                        </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-lg-3">
-                                            <div class="form-check-radio">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                          Radio is off
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                            <div class="form-check-radio">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked="">
-                          Radio is on
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                            <div class="form-check-radio disabled">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled="">
-                          Disabled radio is off
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                            <div class="form-check-radio disabled">
-                                                <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="exampleRadioz" id="exampleRadios4" value="option4" checked="" disabled="">
-                          Disabled radio is on
-                          <span class="form-check-sign"></span>
-                        </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Input with success</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group has-success">
-                                                <input type="text" class="form-control" value="Success">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Input with error</label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group has-danger">
-                                                <input type="text" class="form-control" value="Error">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 col-form-label">Column sizing</label>
-                                        <div class="col-sm-10">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder=".col-md-3">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder=".col-md-4">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder=".col-md-5">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="text-primary">
+                                            <th class="text-left">
+                                                #
+                                            </th>
+                                            <th class="text-left">
+                                                Grupo
+                                            </th>
+                                            <th class="text-left">
+                                                Typo
+                                            </th>
+                                            <th class="text-left">
+                                                Marca
+                                            </th>
+                                            <th class="text-left">
+                                                Modelo
+                                            </th>
+                                            <th class="text-left">
+                                                No.Serie
+                                            </th>
+                                            <th class="text-left">
+                                                Comentarios
+                                            </th>
+                                            <th class="text-left">
+                                                Última Calibración
+                                            </th>
+                                            <th class="text-left">
+                                                Vencimiento
+                                            </th>
+                                            <th class="text-left">
+                                                Editar
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-left">
+                                                    1
+                                                </td>
+                                                <td class="text-left">
+                                                    A
+                                                </td>
+                                                <td class="text-left">
+                                                    Monogas
+                                                </td>
+                                                <td class="text-left">
+                                                    Schneider
+                                                </td>
+                                                <td class="text-left">
+                                                    AP32
+                                                </td>
+                                                <td class="text-left">
+                                                    B324HJ32
+                                                </td>
+                                                <td class="text-left">
+                                                    Tiene la pintura picada
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2019
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2020
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    1
+                                                </td>
+                                                <td class="text-left">
+                                                    A
+                                                </td>
+                                                <td class="text-left">
+                                                    Monogas
+                                                </td>
+                                                <td class="text-left">
+                                                    Schneider
+                                                </td>
+                                                <td class="text-left">
+                                                    AP32
+                                                </td>
+                                                <td class="text-left">
+                                                    B324HJ32
+                                                </td>
+                                                <td class="text-left">
+                                                    Tiene la pintura picada
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2019
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2020
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    1
+                                                </td>
+                                                <td class="text-left">
+                                                    A
+                                                </td>
+                                                <td class="text-left">
+                                                    Monogas
+                                                </td>
+                                                <td class="text-left">
+                                                    Schneider
+                                                </td>
+                                                <td class="text-left">
+                                                    AP32
+                                                </td>
+                                                <td class="text-left">
+                                                    B324HJ32
+                                                </td>
+                                                <td class="text-left">
+                                                    Tiene la pintura picada
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2019
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2020
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    1
+                                                </td>
+                                                <td class="text-left">
+                                                    A
+                                                </td>
+                                                <td class="text-left">
+                                                    Monogas
+                                                </td>
+                                                <td class="text-left">
+                                                    Schneider
+                                                </td>
+                                                <td class="text-left">
+                                                    AP32
+                                                </td>
+                                                <td class="text-left">
+                                                    B324HJ32
+                                                </td>
+                                                <td class="text-left">
+                                                    Tiene la pintura picada
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2019
+                                                </td>
+                                                <td class="text-left">
+                                                    11/04/2020
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -791,16 +784,16 @@
                     <div class="row">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+                                <li><a href="" target="_blank">Ventum</a></li>
+                                <li><a href="" target="_blank">About</a></li>
+                                <li><a href="" target="_blank">Licenses</a></li>
                             </ul>
                         </nav>
                         <div class="credits ml-auto">
                             <span class="copyright">
                 © <script>
                   document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                </script>, by Ventum
               </span>
                         </div>
                     </div>
