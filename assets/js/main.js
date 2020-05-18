@@ -1,6 +1,6 @@
 //S: UI section
 const inputs = document.querySelectorAll(".input");
-
+console.log("cargando main");
 
 function addcl() {
     let parent = this.parentNode.parentNode;
@@ -24,6 +24,7 @@ inputs.forEach(input => {
 //S: login form
 
 let ServerLogin = function(username, password) { //A: manda un POST al endpoint con el usuario y contraseña devuelve una promesa
+    console.log("llamando al servidor");
     return new Promise(function(resolve, reject) {
         var raw = {
             username: username,
@@ -48,9 +49,10 @@ let ServerLogin = function(username, password) { //A: manda un POST al endpoint 
 
 
 window.onload = function() {
+    console.log("onload");
     document.getElementById('loginForm').onsubmit = function(e) {
+        console.log("onsubmit");
         e.preventDefault();
-
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         if (!username || !password) { return alert("usuario y contraseña obligatorios"); }
@@ -66,4 +68,5 @@ window.onload = function() {
                 console.log("Login error: ", err)
             })
     }
+    this.console.log(document.getElementById('loginForm'));
 }
