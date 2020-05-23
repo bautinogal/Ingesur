@@ -17,5 +17,9 @@
         "number": 1106,
         "floor": 7,
         "department": "b"
-    }]
+    }],
+    "login": {
+        "user": "nicog@ingesur.com",
+        "hashedPass": "fb6cecc85a100197ae3ad68d1f9f2886"
+    }
 }
