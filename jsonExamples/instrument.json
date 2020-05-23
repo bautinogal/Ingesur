@@ -1,0 +1,10 @@
+{
+    "group": "A",
+    "type": "Monogas",
+    "brand": "Schneider",
+    "model": "AP32",
+    "serialNo": "A123456",
+    "comments": "Tiene la pintura picada",
+    "lastCalibration": "2013-10-21",
+    "certificationExpires": "2014-10-21"
+}

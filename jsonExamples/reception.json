@@ -1,0 +1,12 @@
+{
+    "dispatcherId": "A12CB234", // User
+    "securityReferentId": "B142CB2C", // User
+    "receptorId": "CB9435F1", // User
+    "time": "2013-10-21T13:28:06.419Z",
+    "deviceInfo": {
+        // Info del dispositivo IMEI, red, tipo, ubicacion, MAC Address, etc
+    },
+    "instrumentsIds": [
+        "3412CB3", "B234CB234", "A12A12C"
+    ]
+}
