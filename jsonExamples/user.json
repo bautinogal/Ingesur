@@ -1,0 +1,21 @@
+{
+    "name": "Nicolas",
+    "lastName": "Gonzalez",
+    "identificationType": "DNI",
+    "identification": 36181166,
+    "rol": "admin",
+    "birth": "2013-10-21",
+    "company": "Ingesur",
+    "sector": "Ventas",
+    "position": "Analista de compras",
+    "mails": ["nico@gmail.com", "nicog@ingesur.com"],
+    "phones": [123456789, 91283764674],
+    "addresses": [{
+        "postalCode": "1425",
+        "city": "Comodoro Rivadavia",
+        "street": "Armada Argentina",
+        "number": 1106,
+        "floor": 7,
+        "department": "b"
+    }]
+}
