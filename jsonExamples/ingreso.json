@@ -1,0 +1,178 @@
+//No asumir ningun campo, puede que no todos los campos existan, pero si existen van a venir con esta estructura
+{
+    "info": {
+        "fecha": "2013-10-21T13:28:06.419Z",
+        "iMac": "A33C9372B",
+        "IP": "168.123.0.1"
+    },
+    "despachante": {
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "tipoIdentificacion": "DNI",
+        "identificacion": 32363236,
+        "nacimiento": "1-2-1996",
+        "empresa": "YPF",
+        "sector": "Ventas",
+        "posicion": "Analista de compras",
+        "mails": ["JuanPerez@gmail.com", "JuanPerez@ypf.com"],
+        "telefonos": [123456789, 91283764674],
+        "direcciones": [{
+            "postalCode": "1425",
+            "city": "Comodoro Rivadavia",
+            "street": "Armada Argentina",
+            "number": 1106,
+            "floor": 7,
+            "department": "b",
+            "descripcion": "Domicilio particular, no mandar las cosas aca..."
+        }],
+        "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
+    },
+    "receptor": {
+        "nombre": "Nicolas",
+        "apellido": "Gonzalez",
+        "tipoIdentificacion": "DNI",
+        "identificacion": 36181166,
+        "nacimiento": "2013-10-21",
+        "empresa": "Ingesur",
+        "sector": "Ventas",
+        "posicion": "Analista de compras",
+        "mails": ["nico@gmail.com", "nicog@ingesur.com"],
+        "telefonos": [123456789, 91283764674],
+        "direcciones": [{
+            "postalCode": "1425",
+            "city": "Comodoro Rivadavia",
+            "street": "Armada Argentina",
+            "number": 1106,
+            "floor": 7,
+            "department": "b",
+            "descripcion": "Domicilio particular, no mandar las cosas aca..."
+        }],
+        //Usuario con el que te logueas en nuestro portal
+        "usuarioSistema": {
+            "rol": "admin",
+            "mail": "nicog@ingesur.com",
+            "pass": "fb6cecc85a100197ae3ad68d1f9f2886"
+        }
+    },
+    "equipos": [{
+            //Ojo, no confundir con "usuarioSistema"
+            "usuarioEquipo": {
+                "nombre": "Juan",
+                "apellido": "Perez",
+                "tipoIdentificacion": "DNI",
+                "identificacion": 32363236,
+                "nacimiento": "1-2-1996",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "posicion": "Analista de compras",
+                "mails": ["JuanPerez@gmail.com", "JuanPerez@ypf.com"],
+                "telefonos": [123456789, 91283764674],
+                "direcciones": [{
+                    "postalCode": "1425",
+                    "city": "Comodoro Rivadavia",
+                    "street": "Armada Argentina",
+                    "number": 1106,
+                    "floor": 7,
+                    "department": "b",
+                    "descripcion": "Domicilio particular, no mandar las cosas aca..."
+                }],
+                "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
+            },
+            "responsableSeguridad": {
+
+            },
+            "responsableCompras": {
+                "nombre": "Juan",
+                "apellido": "Perez",
+                "tipoIdentificacion": "DNI",
+                "identificacion": 32363236,
+                "nacimiento": "1-2-1996",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "posicion": "Analista de compras",
+                "mails": ["JuanPerez@gmail.com", "JuanPerez@ypf.com"],
+                "telefonos": [123456789, 91283764674],
+                "direcciones": [{
+                    "postalCode": "1425",
+                    "city": "Comodoro Rivadavia",
+                    "street": "Armada Argentina",
+                    "number": 1106,
+                    "floor": 7,
+                    "department": "b",
+                    "descripcion": "Domicilio particular, no mandar las cosas aca..."
+                }],
+                "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
+            },
+            "equipo": {
+                "group": "A",
+                "type": "Monogas",
+                "brand": "Schneider",
+                "model": "AP32",
+                "serialNo": "A123456",
+                "comments": "Tiene la pintura picada",
+                "lastCalibration": "2013-10-21",
+                "certificationExpires": "2014-10-21"
+            }
+        },
+        {
+            "usuarioEquipo": {
+                "nombre": "Juan",
+                "apellido": "Perez",
+                "tipoIdentificacion": "DNI",
+                "identificacion": 32363236,
+                "nacimiento": "1-2-1996",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "posicion": "Analista de compras",
+                "mails": ["JuanPerez@gmail.com", "JuanPerez@ypf.com"],
+                "telefonos": [123456789, 91283764674],
+                "direcciones": [{
+                    "postalCode": "1425",
+                    "city": "Comodoro Rivadavia",
+                    "street": "Armada Argentina",
+                    "number": 1106,
+                    "floor": 7,
+                    "department": "b",
+                    "descripcion": "Domicilio particular, no mandar las cosas aca..."
+                }],
+                "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
+            },
+            "responsableSeguridad": {
+                //Puede que no haya para algunos equipos
+            },
+            "responsableCompras": {
+                "nombre": "Juan",
+                "apellido": "Perez",
+                "tipoIdentificacion": "DNI",
+                "identificacion": 32363236,
+                "nacimiento": "1-2-1996",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "posicion": "Analista de compras",
+                "mails": ["JuanPerez@gmail.com", "JuanPerez@ypf.com"],
+                "telefonos": [123456789, 91283764674],
+                "direcciones": [{
+                    "postalCode": "1425",
+                    "city": "Comodoro Rivadavia",
+                    "street": "Armada Argentina",
+                    "number": 1106,
+                    "floor": 7,
+                    "department": "b",
+                    "descripcion": "Domicilio particular, no mandar las cosas aca..."
+                }],
+                "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
+            },
+            "equipo": {
+                "group": "A",
+                "type": "Monogas",
+                "brand": "Schneider",
+                "model": "AP32",
+                "serialNo": "A123456",
+                "comments": "Tiene la pintura picada",
+                "lastCalibration": "2013-10-21",
+                "certificationExpires": "2014-10-21"
+            }
+        }
+    ]
+
+}
