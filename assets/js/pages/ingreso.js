@@ -85,6 +85,7 @@ function showFormForGroup(group) {
             $('#formEquipoA').collapse('show');
             $('#formEquipoB').collapse('hide');
             $('#formEquipoC').collapse('hide');
+            break;
     }
 }
 
