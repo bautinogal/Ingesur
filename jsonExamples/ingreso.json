@@ -103,15 +103,18 @@
                 }],
                 "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
             },
+            //Los campos pueden variar en funcion del tipo de equipo
             "equipo": {
-                "group": "A",
-                "type": "Monogas",
-                "brand": "Schneider",
-                "model": "AP32",
-                "serialNo": "A123456",
-                "comments": "Tiene la pintura picada",
-                "lastCalibration": "2013-10-21",
-                "certificationExpires": "2014-10-21"
+                "grupo": "A",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "otraID": "AA32124",
+                "equipamiento": "",
+                "marca": "Schneider",
+                "modelo": "AP32",
+                "SN": "A123456",
+                "calibracionEnDias": "120",
+                "comentario": "Tiene la pintura picada"
             }
         },
         {
@@ -163,14 +166,16 @@
                 "usuario": {} //No todas las personas tienen usuario para logearse en el sistema
             },
             "equipo": {
-                "group": "A",
-                "type": "Monogas",
-                "brand": "Schneider",
-                "model": "AP32",
-                "serialNo": "A123456",
-                "comments": "Tiene la pintura picada",
-                "lastCalibration": "2013-10-21",
-                "certificationExpires": "2014-10-21"
+                "grupo": "A",
+                "empresa": "YPF",
+                "sector": "Ventas",
+                "otraID": "AA32124",
+                "equipamiento": "",
+                "marca": "Schneider",
+                "modelo": "AP32",
+                "SN": "A123456",
+                "calibracionEnDias": "120",
+                "comentario": "Tiene la pintura picada"
             }
         }
     ]
