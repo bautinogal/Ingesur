@@ -137,13 +137,18 @@ let equipos = [];
 //TODO: este id no sigue la convención porque el elemento lo llamo de nuevo-equipo-ingreso (unificar)
 btnAgregarEquipo = document.getElementById('submitModalBtn');
 btnSubmit = document.getElementById('btn-submit');
+tableEquipos = document.getElementById('lista-equipos');
 
 function getFormData() {
 
 }
 
-function drawTable() {
-
+function drawTable() { <
+    /* tr id = "lista-equipos" >
+         <
+         td class = "text-left" >
+         1 <
+         /td>*/
 }
 
 function agregarEquipo() {
