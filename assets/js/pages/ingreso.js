@@ -143,8 +143,8 @@ function getFormData() {
 
 }
 
-function drawTable() { <
-    /* tr id = "lista-equipos" >
+function drawTable() {
+    /* <tr id = "lista-equipos" >
          <
          td class = "text-left" >
          1 <
