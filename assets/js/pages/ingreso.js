@@ -34,14 +34,100 @@ ServerLogin("admin@admin.com", "123");
 //Autocompletado del formulario del "Despachante"
 
 //Data que le vamos a mandar al servidor con todos los datos ingresados
-let ingreso = {};
+let ingreso = {
+    equipos: [{
+        usuario: {},
+        resSeguridad: {},
+        resCompras: {},
+        equipo: {
+            grupo: "A",
+            tipo: "Monogas",
+            empresa: "YPF",
+            sector: "UpStream",
+            otraId: "123456",
+            comentarios: "todo bien",
+            equipamiento: "ninguno",
+            marca: "Schneider",
+            modelo: "ABC123",
+            serialNo: "1234456",
+            calibracionEnDias: "180"
+        }
+    }, {
+        usuario: {},
+        resSeguridad: {},
+        resCompras: {},
+        equipo: {
+            grupo: "A",
+            tipo: "Monogas",
+            empresa: "YPF",
+            sector: "UpStream",
+            otraId: "123456",
+            comentarios: "todo bien",
+            equipamiento: "ninguno",
+            marca: "Schneider",
+            modelo: "ABC123",
+            serialNo: "1234456",
+            calibracionEnDias: "180"
+        }
+    }, {
+        usuario: {},
+        resSeguridad: {},
+        resCompras: {},
+        equipo: {
+            grupo: "A",
+            tipo: "Monogas",
+            empresa: "YPF",
+            sector: "UpStream",
+            otraId: "123456",
+            comentarios: "todo bien",
+            equipamiento: "ninguno",
+            marca: "Schneider",
+            modelo: "ABC123",
+            serialNo: "1234456",
+            calibracionEnDias: "180"
+        }
+    }, {
+        usuario: {},
+        resSeguridad: {},
+        resCompras: {},
+        equipo: {
+            grupo: "A",
+            tipo: "Monogas",
+            empresa: "YPF",
+            sector: "UpStream",
+            otraId: "123456",
+            comentarios: "todo bien",
+            equipamiento: "ninguno",
+            marca: "Schneider",
+            modelo: "ABC123",
+            serialNo: "1234456",
+            calibracionEnDias: "180"
+        }
+    }, {
+        usuario: {},
+        resSeguridad: {},
+        resCompras: {},
+        equipo: {
+            grupo: "A",
+            tipo: "Monogas",
+            empresa: "YPF",
+            sector: "UpStream",
+            otraId: "123456",
+            comentarios: "todo bien",
+            equipamiento: "ninguno",
+            marca: "Schneider",
+            modelo: "ABC123",
+            serialNo: "1234456",
+            calibracionEnDias: "180"
+        }
+    }]
+};
 
 const formDespachante = document.getElementById('form-despachante');
 const formReceptor = document.getElementById('form-receptor');
 const formUsuario = document.getElementById('form-usuario');
-const formResponsableSeguridad = document.getElementById('form-responsable-seguridad');
-const formResponsableCompras = document.getElementById('form-responsable-compras');
-const tableEquipos = document.getElementById('table-equipos');
+const formResponsableSeguridad = document.getElementById('FormResSeguridad');
+const formResponsableCompras = document.getElementById('FormResCompras');
 
 const inputDniDespachante = document.getElementById('dni-despachante');
 const inputDniUsuario = document.getElementById('dni-usuario');
@@ -78,6 +164,18 @@ const userDataMap = function(field) {
             return "";
     }
 
+}
+
+// Me devuelve un objeto con la info del form
+const formToData = function(form) {
+    var formElements = form.elements;
+    var postData = {};
+    for (var i = 0; i < formElements.length; i++)
+        if (formElements[i].type != "submit") //we dont want to include the submit-buttom
+            postData[formElements[i].name] = formElements[i].value;
+
+    console.log("ingreso@formToData: postData: %s", JSON.stringify(postData));
+    return postData;
 }
 
 //Función que autocompleta el form con la data
@@ -132,29 +230,120 @@ autoCompleteOnInput(formResponsableCompras, inputDniResponsableCompras);
 //-----------------------------------------------------------------------------
 //Manejo de los datos agregar/sacar equipos
 
-let equipos = [];
 
 //TODO: este id no sigue la convención porque el elemento lo llamo de nuevo-equipo-ingreso (unificar)
-btnAgregarEquipo = document.getElementById('submitModalBtn');
-btnSubmit = document.getElementById('btn-submit');
-tableEquipos = document.getElementById('lista-equipos');
+const btnAgregarEquipo = document.getElementById('submitModalBtn');
+const btnSubmit = document.getElementById('listo');
+const tableEquipos = document.getElementById('lista-equipos');
 
+const formSelector = document.getElementById('TipoDeEquipoDrop');
+const formA = document.getElementById('formEquipoA');
+const formB = document.getElementById('formEquipoB');
+const formC = document.getElementById('formEquipoC');
+
+//Devuelve un objeto con la info que se ingreso en el formulario de nuevo equipo
 function getFormData() {
-
+    var result = {};
+    result.usuario = formToData(formUsuario);
+    result.resCompras = formToData(formResponsableCompras);
+    result.resSeguridad = formToData(formResponsableSeguridad);
+    switch (selectedGroup) {
+        case "Grupo A":
+            result.equipo = formToData(formA);
+            break;
+        case "Grupo B":
+            result.equipo = formToData(formB);
+            break;
+        case "Grupo C":
+            result.equipo = formToData(formC);
+            break;
+        default:
+            result.equipo = {};
+            break;
+    }
+    return result;
 }
 
-function drawTable() {
-    /* <tr id = "lista-equipos" >
-         <
-         td class = "text-left" >
-         1 <
-         /td>*/
+function eliminarEquipo(equipo) {
+    const index = ingreso.equipos.indexOf(equipo);
+    if (index > -1) {
+        ingreso.equipos.splice(equipo, 1);
+    }
+    drawTable(ingreso.equipos);
+}
+
+//Dibuja la tabla de equipos cargados
+function drawTable(equipos) {
+    tableEquipos.innerHTML = '';
+    console.log("ingreso@drawTable: dibujando tabla con: %s", JSON.stringify(equipos));
+    var counter = 1;
+    try {
+        equipos.forEach(equipo => {
+            console.log("ingreso@drawTable: agregando linea: %s", JSON.stringify(equipo));
+            const data = equipo.equipo;
+            var newLine = document.createElement("tr");
+            var numero = document.createElement("td");
+            numero.appendChild(document.createTextNode(counter.toString()));
+            newLine.appendChild(numero);
+            var grupo = document.createElement("td");
+            grupo.appendChild(document.createTextNode(data.grupo));
+            newLine.appendChild(grupo);
+            var tipo = document.createElement("td");
+            tipo.appendChild(document.createTextNode(data.tipo));
+            newLine.appendChild(tipo);
+            var marca = document.createElement("td");
+            marca.appendChild(document.createTextNode(data.marca));
+            newLine.appendChild(marca);
+            var modelo = document.createElement("td");
+            modelo.appendChild(document.createTextNode(data.modelo));
+            newLine.appendChild(modelo);
+            var serialNo = document.createElement("td");
+            serialNo.appendChild(document.createTextNode(data.serialNo));
+            newLine.appendChild(serialNo);
+            var comentarios = document.createElement("td");
+            comentarios.appendChild(document.createTextNode(data.comentarios));
+            newLine.appendChild(comentarios);
+            var calibracionEnDias = document.createElement("td");
+            calibracionEnDias.appendChild(document.createTextNode(data.calibracionEnDias));
+            newLine.appendChild(calibracionEnDias);
+
+            var editCell = document.createElement("td");
+
+            //Agrego el boton para editar el equipo
+            var editBtn = document.createElement("button");
+            editBtn.rel = "tooltip";
+            editBtn.className = "btn btn-success btn-icon btn-sm ";
+            var editBtnInfo = document.createElement("i");
+            editBtnInfo.className = "fa fa-edit";
+            editBtn.appendChild(editBtnInfo);
+            //TODO: poder editar el equipo
+            editCell.appendChild(editBtn);
+
+            //Agrego el boton para borrar el equipo
+            var eraseBtn = document.createElement("button");
+            eraseBtn.rel = "tooltip";
+            eraseBtn.className = "btn btn-danger btn-icon btn-sm ";
+            var eraseBtnInfo = document.createElement("i");
+            eraseBtnInfo.className = "fa fa-times";
+            eraseBtn.appendChild(eraseBtnInfo);
+            eraseBtn.addEventListener('click', () => eliminarEquipo(equipo));
+            editCell.appendChild(eraseBtn);
+
+            newLine.appendChild(editCell);
+
+            tableEquipos.appendChild(newLine);
+            counter++;
+        });
+
+    } catch (e) {
+        console.error("ingreso@drawTable: error: %s", e);
+    }
 }
 
 function agregarEquipo() {
     var formData = getFormData();
     ingreso.equipos.push(formData);
-    drawTable(equipos);
+    drawTable(ingreso.equipos);
 }
 
 function submit() {
@@ -164,8 +353,10 @@ function submit() {
 btnAgregarEquipo.addEventListener('click', agregarEquipo);
 btnSubmit.addEventListener('click', submit);
 
+drawTable(ingreso.equipos);
 //-----------------------------------------------------------------------------
 //TODO: ver si podemos pasar esto de jquery a js común
+/*
 $(document).ready(function() {
     $('.dropdown').each(function(key, dropdown) {
         var $dropdown = $(dropdown);
@@ -174,33 +365,52 @@ $(document).ready(function() {
             showFormForGroup($(this).text());
         });
     });
-});
+});*/
+var selectedGroup = "";
+
+const optionA = document.getElementById('optionA');
+const optionB = document.getElementById('optionB');
+const optionC = document.getElementById('optionC');
+const titulo = document.getElementById('tituloEquipo');
+var tituloText = document.createTextNode(`Equipo: Grupo A`);
+titulo.appendChild(tituloText);
+
+optionA.addEventListener('click', () => showFormForGroup('Grupo A'));
+optionB.addEventListener('click', () => showFormForGroup('Grupo B'));
+optionC.addEventListener('click', () => showFormForGroup('Grupo C'));
+
+
 
 function showFormForGroup(group) {
-    console.log(group);
+    console.log("showFormForGroup: " + group);
+    selectedGroup = group;
+    tituloText.nodeValue = `Equipo: ${group}`;
+
     switch (group) {
         case "Grupo A":
-            $('#formEquipoA').collapse('show');
-            $('#formEquipoB').collapse('hide');
-            $('#formEquipoC').collapse('hide');
+            formA.style.display = "block";
+            formB.style.display = "none";
+            formC.style.display = "none";
             break;
         case "Grupo B":
-            $('#formEquipoA').collapse('hide');
-            $('#formEquipoB').collapse('show');
-            $('#formEquipoC').collapse('hide');
+            formA.style.display = "none";
+            formB.style.display = "block";
+            formC.style.display = "none";
             break;
         case "Grupo C":
-            $('#formEquipoA').collapse('hide');
-            $('#formEquipoB').collapse('hide');
-            $('#formEquipoC').collapse('show');
+            formA.style.display = "none";
+            formB.style.display = "none";
+            formC.style.display = "block";
             break;
         default:
-            $('#formEquipoA').collapse('show');
-            $('#formEquipoB').collapse('hide');
-            $('#formEquipoC').collapse('hide');
+            formA.style.display = "block";
+            formB.style.display = "none";
+            formC.style.display = "none";
             break;
     }
 }
+
+showFormForGroup("Grupo A");
 
 //-----------------------------------------------
 //TODO: creo q no estamos llamando esta funcion. deberiamos mostrar alertas?
