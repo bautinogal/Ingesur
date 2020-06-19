@@ -35,92 +35,7 @@ ServerLogin("admin@admin.com", "123");
 
 //Data que le vamos a mandar al servidor con todos los datos ingresados
 let ingreso = {
-    equipos: [{
-        usuario: {},
-        resSeguridad: {},
-        resCompras: {},
-        equipo: {
-            grupo: "A",
-            tipo: "Monogas",
-            empresa: "YPF",
-            sector: "UpStream",
-            otraId: "123456",
-            comentarios: "todo bien",
-            equipamiento: "ninguno",
-            marca: "Schneider",
-            modelo: "ABC123",
-            serialNo: "1234456",
-            calibracionEnDias: "180"
-        }
-    }, {
-        usuario: {},
-        resSeguridad: {},
-        resCompras: {},
-        equipo: {
-            grupo: "A",
-            tipo: "Monogas",
-            empresa: "YPF",
-            sector: "UpStream",
-            otraId: "123456",
-            comentarios: "todo bien",
-            equipamiento: "ninguno",
-            marca: "Schneider",
-            modelo: "ABC123",
-            serialNo: "1234456",
-            calibracionEnDias: "180"
-        }
-    }, {
-        usuario: {},
-        resSeguridad: {},
-        resCompras: {},
-        equipo: {
-            grupo: "A",
-            tipo: "Monogas",
-            empresa: "YPF",
-            sector: "UpStream",
-            otraId: "123456",
-            comentarios: "todo bien",
-            equipamiento: "ninguno",
-            marca: "Schneider",
-            modelo: "ABC123",
-            serialNo: "1234456",
-            calibracionEnDias: "180"
-        }
-    }, {
-        usuario: {},
-        resSeguridad: {},
-        resCompras: {},
-        equipo: {
-            grupo: "A",
-            tipo: "Monogas",
-            empresa: "YPF",
-            sector: "UpStream",
-            otraId: "123456",
-            comentarios: "todo bien",
-            equipamiento: "ninguno",
-            marca: "Schneider",
-            modelo: "ABC123",
-            serialNo: "1234456",
-            calibracionEnDias: "180"
-        }
-    }, {
-        usuario: {},
-        resSeguridad: {},
-        resCompras: {},
-        equipo: {
-            grupo: "A",
-            tipo: "Monogas",
-            empresa: "YPF",
-            sector: "UpStream",
-            otraId: "123456",
-            comentarios: "todo bien",
-            equipamiento: "ninguno",
-            marca: "Schneider",
-            modelo: "ABC123",
-            serialNo: "1234456",
-            calibracionEnDias: "180"
-        }
-    }]
+    equipos: []
 };
 
 const formDespachante = document.getElementById('form-despachante');
@@ -250,12 +165,15 @@ function getFormData() {
     switch (selectedGroup) {
         case "Grupo A":
             result.equipo = formToData(formA);
+            result.equipo.grupo = "A";
             break;
         case "Grupo B":
             result.equipo = formToData(formB);
+            result.equipo.grupo = "B";
             break;
         case "Grupo C":
             result.equipo = formToData(formC);
+            result.equipo.grupo = "C";
             break;
         default:
             result.equipo = {};
@@ -265,9 +183,11 @@ function getFormData() {
 }
 
 function eliminarEquipo(equipo) {
+    console.log("eliminarEquipo: equipo %s", JSON.stringify(equipo));
     const index = ingreso.equipos.indexOf(equipo);
+    console.log("eliminarEquipo: index %s", index);
     if (index > -1) {
-        ingreso.equipos.splice(equipo, 1);
+        ingreso.equipos.splice(index, 1);
     }
     drawTable(ingreso.equipos);
 }
@@ -283,29 +203,29 @@ function drawTable(equipos) {
             const data = equipo.equipo;
             var newLine = document.createElement("tr");
             var numero = document.createElement("td");
-            numero.appendChild(document.createTextNode(counter.toString()));
+            numero.appendChild(document.createTextNode(counter || '-'));
             newLine.appendChild(numero);
             var grupo = document.createElement("td");
-            grupo.appendChild(document.createTextNode(data.grupo));
+            grupo.appendChild(document.createTextNode(data.grupo || '-'));
             newLine.appendChild(grupo);
             var tipo = document.createElement("td");
-            tipo.appendChild(document.createTextNode(data.tipo));
+            tipo.appendChild(document.createTextNode(data.tipo || '-'));
             newLine.appendChild(tipo);
             var marca = document.createElement("td");
-            marca.appendChild(document.createTextNode(data.marca));
+            marca.appendChild(document.createTextNode(data.marca || '-'));
             newLine.appendChild(marca);
             var modelo = document.createElement("td");
-            modelo.appendChild(document.createTextNode(data.modelo));
+            modelo.appendChild(document.createTextNode(data.modelo || '-'));
             newLine.appendChild(modelo);
             var serialNo = document.createElement("td");
-            serialNo.appendChild(document.createTextNode(data.serialNo));
+            serialNo.appendChild(document.createTextNode(data.serialNo || '-'));
             newLine.appendChild(serialNo);
             var comentarios = document.createElement("td");
-            comentarios.appendChild(document.createTextNode(data.comentarios));
+            comentarios.appendChild(document.createTextNode(data.comentarios || '-'));
             newLine.appendChild(comentarios);
-            var calibracionEnDias = document.createElement("td");
-            calibracionEnDias.appendChild(document.createTextNode(data.calibracionEnDias));
-            newLine.appendChild(calibracionEnDias);
+            var diasEntreCal = document.createElement("td");
+            diasEntreCal.appendChild(document.createTextNode(data.calibracionEnDias || '-'));
+            newLine.appendChild(diasEntreCal);
 
             var editCell = document.createElement("td");
 
