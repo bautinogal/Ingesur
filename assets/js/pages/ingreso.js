@@ -49,8 +49,6 @@ const inputDniUsuario = document.getElementById('dni-usuario');
 const inputDniResponsableSeguridad = document.getElementById('dni-responsable-seguridad');
 const inputDniResponsableCompras = document.getElementById('dni-responsable-compras');
 
-
-
 // Uso esta función para mapear los datos de los usuarios que vienen de la bd con los campos de los formularios 
 //(uso los placeholders para identificarlos)
 const userDataMap = function(field) {
@@ -163,17 +161,17 @@ function getFormData() {
     result.resCompras = formToData(formResponsableCompras);
     result.resSeguridad = formToData(formResponsableSeguridad);
     switch (selectedGroup) {
-        case "Grupo A":
+        case "Multigas-Monogas-Fijos":
             result.equipo = formToData(formA);
-            result.equipo.grupo = "A";
+            result.equipo.grupo = "Multigas-Monogas-Fijos";
             break;
-        case "Grupo B":
+        case "Autónomos":
             result.equipo = formToData(formB);
-            result.equipo.grupo = "B";
+            result.equipo.grupo = "Autónomos";
             break;
-        case "Grupo C":
+        case "Varios":
             result.equipo = formToData(formC);
-            result.equipo.grupo = "C";
+            result.equipo.grupo = "Varios";
             break;
         default:
             result.equipo = {};
@@ -208,9 +206,9 @@ function drawTable(equipos) {
             var grupo = document.createElement("td");
             grupo.appendChild(document.createTextNode(data.grupo || '-'));
             newLine.appendChild(grupo);
-            var tipo = document.createElement("td");
-            tipo.appendChild(document.createTextNode(data.tipo || '-'));
-            newLine.appendChild(tipo);
+            //var tipo = document.createElement("td");
+            //tipo.appendChild(document.createTextNode(data.tipo || '-'));
+            //newLine.appendChild(tipo);
             var marca = document.createElement("td");
             marca.appendChild(document.createTextNode(data.marca || '-'));
             newLine.appendChild(marca);
@@ -224,7 +222,7 @@ function drawTable(equipos) {
             comentarios.appendChild(document.createTextNode(data.comentarios || '-'));
             newLine.appendChild(comentarios);
             var diasEntreCal = document.createElement("td");
-            diasEntreCal.appendChild(document.createTextNode(data.calibracionEnDias || '-'));
+            diasEntreCal.appendChild(document.createTextNode(data.diasEntreCal || '-'));
             newLine.appendChild(diasEntreCal);
 
             var editCell = document.createElement("td");
@@ -267,25 +265,18 @@ function agregarEquipo() {
 }
 
 function submit() {
+    result = {};
+    result.despachante = formToData(formDespachante);
+    result.receptor = {};
+    result.equipos = ingreso.equipos;
+    console.log("ingreso@submit: result: %s", JSON.stringify(result));
 
 }
-
 btnAgregarEquipo.addEventListener('click', agregarEquipo);
 btnSubmit.addEventListener('click', submit);
 
 drawTable(ingreso.equipos);
-//-----------------------------------------------------------------------------
-//TODO: ver si podemos pasar esto de jquery a js común
-/*
-$(document).ready(function() {
-    $('.dropdown').each(function(key, dropdown) {
-        var $dropdown = $(dropdown);
-        $dropdown.find('.dropdown-menu a').on('click', function() {
-            $dropdown.find('button').text($(this).text()).append('');
-            showFormForGroup($(this).text());
-        });
-    });
-});*/
+
 var selectedGroup = "";
 
 const optionA = document.getElementById('optionA');
@@ -295,11 +286,9 @@ const titulo = document.getElementById('tituloEquipo');
 var tituloText = document.createTextNode(`Equipo: Grupo A`);
 titulo.appendChild(tituloText);
 
-optionA.addEventListener('click', () => showFormForGroup('Grupo A'));
-optionB.addEventListener('click', () => showFormForGroup('Grupo B'));
-optionC.addEventListener('click', () => showFormForGroup('Grupo C'));
-
-
+optionA.addEventListener('click', () => showFormForGroup('Multigas-Monogas-Fijos'));
+optionB.addEventListener('click', () => showFormForGroup('Autónomos'));
+optionC.addEventListener('click', () => showFormForGroup('Varios'));
 
 function showFormForGroup(group) {
     console.log("showFormForGroup: " + group);
@@ -307,17 +296,17 @@ function showFormForGroup(group) {
     tituloText.nodeValue = `Equipo: ${group}`;
 
     switch (group) {
-        case "Grupo A":
+        case "Multigas-Monogas-Fijos":
             formA.style.display = "block";
             formB.style.display = "none";
             formC.style.display = "none";
             break;
-        case "Grupo B":
+        case "Autónomos":
             formA.style.display = "none";
             formB.style.display = "block";
             formC.style.display = "none";
             break;
-        case "Grupo C":
+        case "Varios":
             formA.style.display = "none";
             formB.style.display = "none";
             formC.style.display = "block";
@@ -330,7 +319,7 @@ function showFormForGroup(group) {
     }
 }
 
-showFormForGroup("Grupo A");
+showFormForGroup("Multigas-Monogas-Fijos");
 
 //-----------------------------------------------
 //TODO: creo q no estamos llamando esta funcion. deberiamos mostrar alertas?

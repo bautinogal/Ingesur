@@ -32,8 +32,9 @@
                 <h2 class="navbar-brand">Agregar Equipos</h2>
             </div>
             <div class="modal-body">
+                <!-- V: Datos de los interesados -->
                 <div class="row">
-                    <!-- V: Datos de los interesados -->
+
                     <div class="col-md-12">
                         <div class="row">
                             <!-- V: Datos del usuario -->
@@ -327,6 +328,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- V: Dropdown para tipos de equipos-->
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-3">
                         <div class="dropdown">
@@ -335,17 +337,18 @@
                             </button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="TipoDeEquipo">
-                                <a class="dropdown-item" href="#A" id="optionA">Grupo A</a>
-                                <a class="dropdown-item" href="#B" id="optionB">Grupo B</a>
-                                <a class="dropdown-item" href="#C" id="optionC">Grupo C</a>
+                                <a class="dropdown-item" id="optionA">Mono-Multi-Fijo</a>
+                                <a class="dropdown-item" id="optionB">Autónomos</a>
+                                <a class="dropdown-item" id="optionC">Varios</a>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                     </div>
                 </div>
+                <!-- V: Datos del equipo -->
                 <div class="row">
-                    <!-- V: Datos del equipo -->
+
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
@@ -355,8 +358,8 @@
                                     </div>
                                     <div class="card-body container">
                                         <div class="container-fluid">
+                                            <!-- Formulario Grupo Monogas-Multigas-Fijos-->
                                             <form class="form-horizontal" id="formEquipoA">
-                                                <!-- Formulario Grupo A-->
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="row">
@@ -421,14 +424,22 @@
                                                             <label class="col-md-3 col-form-label">Calibración en Dias</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <input name="calibracionEnDias" type="number" class="form-control" placeholder="Calibración en Dias">
+                                                                    <input name="diasEntreCal" type="number" class="form-control" placeholder="Calibración en Dias">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <!-- Formulario Grupo B-->
+                                            <!-- Formulario Autónomos-->
                                             <form class="form-horizontal" id="formEquipoB">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -468,7 +479,7 @@
                                                             <label class="col-md-3 col-form-label">Marca</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <input name="Marca" type="text" class="form-control" placeholder="Marca">
+                                                                    <input name="marca" type="text" class="form-control" placeholder="Marca">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -478,7 +489,7 @@
                                                             <label class="col-md-3 col-form-label">Modelo</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <input name="Modelo" type="text" class="form-control" placeholder="Modelo">
+                                                                    <input name="modelo" type="text" class="form-control" placeholder="Modelo">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -498,10 +509,18 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <!-- Formulario Grupo C-->
+                                            <!-- Formulario Varios-->
                                             <form class="form-horizontal" id="formEquipoC">
                                                 <div class="row" id="formEquipoC">
                                                     <div class="col-md-6">
@@ -522,18 +541,18 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <label class="col-md-3 col-form-label">Otra ID</label>
+                                                            <label class="col-md-3 col-form-label">S/N</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <input name="otraId" type="text" class="form-control" placeholder="Otra ID">
+                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <label class="col-md-3 col-form-label">Equipamiento</label>
+                                                            <label class="col-md-3 col-form-label">Otra ID</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <input name="equipamiento" type="text" class="form-control" placeholder="Equipamiento">
+                                                                    <input name="otraId" type="text" class="form-control" placeholder="Otra ID">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -553,22 +572,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">S/N</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">Calibración en Dias</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="diasEntreCal" type="text" class="form-control" placeholder="Calibración en Dias">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="row">
@@ -580,50 +584,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <label class="col-md-3 col-form-label">Sector</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="sector" type="text" class="form-control" placeholder="Sector">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">Otra ID</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="otraId" type="text" class="form-control" placeholder="Otra ID">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
                                                             <label class="col-md-3 col-form-label">Equipamiento</label>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
                                                                     <input name="equipamiento" type="text" class="form-control" placeholder="Equipamiento">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">Marca</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="marca" type="text" class="form-control" placeholder="Marca">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">Modelo</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="modelo" type="text" class="form-control" placeholder="Modelo">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <label class="col-md-3 col-form-label">S/N</label>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group">
-                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -635,6 +599,15 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </form>
@@ -1049,19 +1022,19 @@
                 <div class="row">
                     <!-- V: Datos del despachante -->
                     <div class="col-md-6">
-                        <div class="card" id="form-despachante">
+                        <div class="card">
                             <div class="card-header ">
                                 <h4 class="card-title">Despachante</h4>
                             </div>
                             <div class="card-body ">
-                                <form class="form-horizontal container" id="">
+                                <form class="form-horizontal container" id="form-despachante">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="row">
                                                 <label class="col-md-3 col-form-label">DNI</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input id="dni-despachante" type="number" class="form-control" placeholder="DNI">
+                                                        <input name="dni" id="dni-despachante" type="number" class="form-control" placeholder="DNI">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1069,7 +1042,7 @@
                                                 <label class="col-md-3 col-form-label">Nombre</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Nombre">
+                                                        <input name="nombre" type="text" class="form-control" placeholder="Nombre">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1077,7 +1050,7 @@
                                                 <label class="col-md-3 col-form-label">Apellido</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Apellido">
+                                                        <input name="apellido" type="text" class="form-control" placeholder="Apellido">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1085,7 +1058,7 @@
                                                 <label class="col-md-3 col-form-label">Fecha Nac.</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="date" class="form-control" placeholder="Fecha">
+                                                        <input name="fechaNacimiento" type="date" class="form-control" placeholder="Fecha">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1093,7 +1066,7 @@
                                                 <label class="col-md-3 col-form-label">Empresa</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Empresa">
+                                                        <input name="empresa" type="text" class="form-control" placeholder="Empresa">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1103,7 +1076,7 @@
                                                 <label class="col-md-3 col-form-label">Sector</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Sector">
+                                                        <input name="sector" type="text" class="form-control" placeholder="Sector">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1111,7 +1084,7 @@
                                                 <label class="col-md-3 col-form-label">Posición</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Posición">
+                                                        <input name="posicion" type="text" class="form-control" placeholder="Posición">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1119,7 +1092,7 @@
                                                 <label class="col-md-3 col-form-label">Mail</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" placeholder="Mail">
+                                                        <input name="mail" type="email" class="form-control" placeholder="Mail">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1127,7 +1100,7 @@
                                                 <label class="col-md-3 col-form-label">Teléfono</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" placeholder="Teléfono">
+                                                        <input name="telefono" type="number" class="form-control" placeholder="Teléfono">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1135,7 +1108,7 @@
                                                 <label class="col-md-3 col-form-label">Dirección</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Dirección">
+                                                        <input name="direccion" type="text" class="form-control" placeholder="Dirección">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1220,9 +1193,9 @@
                                             <th class="text-left">
                                                 Grupo
                                             </th>
-                                            <th class="text-left">
+                                            <!--<th class="text-left">
                                                 Tipo
-                                            </th>
+                                            </th>-->
                                             <th class="text-left">
                                                 Marca
                                             </th>
