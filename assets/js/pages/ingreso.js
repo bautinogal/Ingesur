@@ -218,12 +218,12 @@ function drawTable(equipos) {
             var serialNo = document.createElement("td");
             serialNo.appendChild(document.createTextNode(data.serialNo || '-'));
             newLine.appendChild(serialNo);
-            var comentarios = document.createElement("td");
-            comentarios.appendChild(document.createTextNode(data.comentarios || '-'));
-            newLine.appendChild(comentarios);
             var diasEntreCal = document.createElement("td");
             diasEntreCal.appendChild(document.createTextNode(data.diasEntreCal || '-'));
             newLine.appendChild(diasEntreCal);
+            var comentarios = document.createElement("td");
+            comentarios.appendChild(document.createTextNode(data.comentarios || '-'));
+            newLine.appendChild(comentarios);
 
             var editCell = document.createElement("td");
 

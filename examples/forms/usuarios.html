@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../../assets/img/idea.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Ingesur
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/css/paper-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../../assets/demo/demo.css" rel="stylesheet" />
+    <link href="../../assets/css/roundedBtn.css" rel="stylesheet" />
+    <link href="../../assets/css/alerts.css" rel="stylesheet" />
+    <link href="../../assets/css/modal.css" rel="stylesheet" />
+</head>
+
+<body class="">
+
+    <!-- V: Modal de carga de nuevo equipo-->
+    <div id="cargar-nuevo-equipo-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="close-modal" style="color: grey;">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- V: Datos de los interesados -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <!-- V: Datos del usuario -->
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 class="card-title">Editar Usuario</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <form class="form-horizontal container" id="form-usuario">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">DNI</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input id="dni-usuario" name="dni" type="number" class="form-control" placeholder="DNI">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Nombre</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Apellido</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Fecha Nac.</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="date" name="fechaNacimiento" class="form-control" placeholder="Fecha">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Empresa</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="empresa" class="form-control" placeholder="Empresa">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Sector</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="sector" class="form-control" placeholder="Sector">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Posición</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="posicion" class="form-control" placeholder="Posición">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Mail</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="email" name="mail" class="form-control" placeholder="Mail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Teléfono</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Dirección</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="direccion" class="form-control" placeholder="Dirección">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer" style="align-content: flex-end;">
+                                        <button type="button" class="btn btn-primary pull-right">Listo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Selecciono el grupo del equipo -->
+        </div>
+    </div>
+
+    <!-- V: Alertas 
+    <div class="alert alert-success fade show" id="succes-alert" role="alert">
+        This is a success alert—check it out!
+    </div>
+    -->
+    <div class="wrapper ">
+        <!-- V: Logo de la Empresa e Información del usuario  -->
+        <div class="sidebar" data-color="default" data-active-color="success">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color=" default | primary | info | success | warning | danger |"
+    -->
+            <!-- V: Logo de la Empresa  -->
+            <div class="logo">
+                <a href="http://www.ingesur-cr.com.ar/" class="simple-text logo-mini">
+                    <div class="logo-image-small">
+                        <img src="../../assets/img//idea.png">
+                    </div>
+                </a>
+                <a href="http://www.ingesur-cr.com.ar/" class="simple-text logo-normal">
+                  Ingesur
+                </a>
+            </div>
+            <!-- V: El resto del Sidebar  -->
+            <div class="sidebar-wrapper">
+                <!-- V: Perfil del Usuario  -->
+                <div class="user">
+                    <div class="photo">
+                        <img src="../../assets/img/NicoGonzalez.png">
+                    </div>
+                    <div class="info">
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>
+                              Gonzalez N.
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- V: Lista de Categorias  -->
+                <ul class="nav">
+                    <!-- V: Dashboard  -->
+                    <li>
+                        <a href="../dashboard.html">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Estadísticas</p>
+                        </a>
+                    </li>
+                    <!-- V: Ejemplos formularios  -->
+                    <li>
+                        <a data-toggle="collapse" href="#formsExamples" aria-expanded="true">
+                            <i class="nc-icon nc-ruler-pencil"></i>
+                            <p>
+                                Formularios <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse " id="formsExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="./ingreso.html">
+                                        <span class="sidebar-mini-icon">RF</span>
+                                        <span class="sidebar-normal"> Ingreso Equipos </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="sidebar-mini-icon">EF</span>
+                                        <span class="sidebar-normal"> Laboratorio </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="sidebar-mini-icon">V</span>
+                                        <span class="sidebar-normal"> Generación Certificados </span>
+                                    </a>
+                                </li>
+                                <!--
+                                <li>
+                                    <a href="../examples/forms/wizard.html">
+                                        <span class="sidebar-mini-icon">W</span>
+                                        <span class="sidebar-normal"> Wizard </span>
+                                    </a>
+                                </li>
+                                -->
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- V: Ejemplos tablas  -->
+                    <li class="active">
+                        <a data-toggle="collapse" href="#tablesExamples">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>
+                                Base de Datos <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse show" id="tablesExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="">
+                                        <span class="sidebar-mini-icon">E</span>
+                                        <span class="sidebar-normal"> Equipos </span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="./usuarios.html">
+                                        <span class="sidebar-mini-icon">V</span>
+                                        <span class="sidebar-normal"> Usuarios </span>
+                                    </a>
+                                </li>
+                                <!--
+                                <li>
+                                    <a href="../examples/tables/datatables.net.html">
+                                        <span class="sidebar-mini-icon">DT</span>
+                                        <span class="sidebar-normal"> DataTables.net </span>
+                                    </a>
+                                </li>
+                                -->
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- V: Ejemplos tablas  -->
+                    <!--
+                    <li>
+                        <a data-toggle="collapse" href="#mapsExamples">
+                            <i class="nc-icon nc-pin-3"></i>
+                            <p>
+                                Maps <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse " id="mapsExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="../examples/maps/google.html">
+                                        <span class="sidebar-mini-icon">GM</span>
+                                        <span class="sidebar-normal"> Google Maps </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../examples/maps/fullscreen.html">
+                                        <span class="sidebar-mini-icon">FSM</span>
+                                        <span class="sidebar-normal"> Full Screen Map </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../examples/maps/vector.html">
+                                        <span class="sidebar-mini-icon">VM</span>
+                                        <span class="sidebar-normal"> Vector Map </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    -->
+                    <!-- V: Ejemplos widgets  -->
+                    <!--
+                    <li>
+                        <a href="../examples/widgets.html">
+                            <i class="nc-icon nc-box"></i>
+                            <p>Widgets</p>
+                        </a>
+                    </li>
+                    -->
+                    <!-- V: Ejemplos graficos  -->
+                    <!--
+                    <li>
+                        <a href="../examples/charts.html">
+                            <i class="nc-icon nc-chart-bar-32"></i>
+                            <p>Charts</p>
+                        </a>
+                    </li>
+                    -->
+                    <!-- V: Calendarios  -->
+                    <!--
+                    <li>
+                        <a href="../examples/calendar.html">
+                            <i class="nc-icon nc-calendar-60"></i>
+                            <p>Calendar</p>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+        <!-- V: Panel Superior y Contenido Principal -->
+        <div class="main-panel">
+            <!-- V: Panel Superior  -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-minimize">
+                            <button id="minimizeSidebar" class="btn btn-icon btn-round">
+                                <i class="nc-icon nc-minimal-right text-center visible-on-sidebar-mini"></i>
+                                <i class="nc-icon nc-minimal-left text-center visible-on-sidebar-regular"></i>
+                            </button>
+                        </div>
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:;">Usuarios</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <form>
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Buscar...">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="nc-icon nc-zoom-split"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn-magnify" href="javascript:;">
+                                    <i class="nc-icon nc-layout-11"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Stats</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item btn-rotate dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="nc-icon nc-bell-55"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="javascript:;">
+                                    <i class="nc-icon nc-settings-gear-65"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Account</span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- V: Contenido Principal -->
+            <div class="content">
+                <div class="row">
+                    <!-- V: Tabla de usuarios -->
+                    <div class="col-md-12">
+                        <div class="card" id="table-equipos">
+                            <div class="card-header">
+                                <div class="row justify-content-md-around align-items-md-center">
+                                    <div class="col-md-3">
+                                        <div class="input-group no-border">
+                                            <input type="text" value="" placeholder="Buscar..." class="form-control pull-left">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button id="cargar-nuevo-equipo-btn" style="background-color: #6bd098;" class="btn btn-circle"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="equiposTable">
+                                        <thead class="text-primary">
+                                            <th class="text-left">
+                                                Nombre
+                                            </th>
+                                            <th class="text-left">
+                                                Apellido
+                                            </th>
+                                            <th class="text-left">
+                                                DNI
+                                            </th>
+                                            <th class="text-left">
+                                                Empresa
+                                            </th>
+                                            <th class="text-left">
+                                                Sector
+                                            </th>
+                                            <th class="text-left">
+                                                Usuario
+                                            </th>
+                                            <th class="text-left">
+                                                Mail
+                                            </th>
+                                            <th class="text-left">
+                                                Telefono
+                                            </th>
+                                            <th class="text-left">
+                                                Fecha Nac.
+                                            </th>
+                                            <th class="text-left">
+                                                Editar
+                                            </th>
+                                        </thead>
+                                        <tbody id="lista-equipos">
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                      <i class="fa fa-edit"></i>
+                                                  </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                      <i class="fa fa-times"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                      <i class="fa fa-edit"></i>
+                                                  </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                      <i class="fa fa-times"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                  <i class="fa fa-edit"></i>
+                                              </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                  <i class="fa fa-times"></i>
+                                              </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left">
+                                                    Juan Bautista
+                                                </td>
+                                                <td class="text-left">
+                                                    Nogal
+                                                </td>
+                                                <td class="text-left">
+                                                    36181166
+                                                </td>
+                                                <td class="text-left">
+                                                    Ventum
+                                                </td>
+                                                <td class="text-left">
+                                                    Desarrollo
+                                                </td>
+                                                <td class="text-left">
+                                                    SI
+                                                </td>
+                                                <td class="text-left">
+                                                    jbnogal@gmail.com
+                                                </td>
+                                                <td class="text-left">
+                                                    1549703070
+                                                </td>
+                                                <td class="text-left">
+                                                    11-06-1991
+                                                </td>
+                                                <td class="text-left">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
+                                                      <i class="fa fa-edit"></i>
+                                                  </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                                                      <i class="fa fa-times"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TODO: Esto lo dejo "hidden" porque si lo borro se rompe la tabla... -->
+                    <div class="col-md-6" style="visibility: hidden;">
+                        <div class="card">
+                            <div class="card-header ">
+                                <h4 class="card-title">Despachante</h4>
+                            </div>
+                            <div class="card-body ">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TODO: Esto lo dejo "hidden" porque si lo borro se rompe la tabla... -->
+                    <div class="col-md-6" style="visibility: hidden;">
+                        <div class="card" id="form-receptor">
+                            <div class="card-header ">
+                                <h4 class="card-title">Receptor</h4>
+                            </div>
+                            <div class="card-body ">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- V: Footer -->
+            <footer class="footer footer-black  footer-white ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <nav class="footer-nav">
+                            <ul>
+                                <li><a href="" target="_blank">Ventum</a></li>
+                                <li><a href="" target="_blank">About</a></li>
+                                <li><a href="" target="_blank">Licenses</a></li>
+                            </ul>
+                        </nav>
+                        <div class="credits ml-auto">
+                            <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, by Ventum
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!--#region carga de scripts  -->
+
+    <!--   Core JS Files   -->
+    <script src="../../assets/js/core/jquery.min.js"></script>
+    <script src="../../assets/js/core/popper.min.js"></script>
+    <script src="../../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../assets/js/plugins/moment.min.js"></script>
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <script src="../../assets/js/plugins/bootstrap-switch.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="../../assets/js/plugins/sweetalert2.min.js"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="../../assets/js/plugins/jquery.validate.min.js"></script>
+    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="../../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="../../assets/js/plugins/bootstrap-selectpicker.js"></script>
+    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script src="../../assets/js/plugins/bootstrap-datetimepicker.js"></script>
+    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+    <script src="../../assets/js/plugins/jquery.dataTables.min.js"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="../../assets/js/plugins/bootstrap-tagsinput.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="../../assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="../../assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="../../assets/js/plugins/fullcalendar/daygrid.min.js"></script>
+    <script src="../../assets/js/plugins/fullcalendar/timegrid.min.js"></script>
+    <script src="../../assets/js/plugins/fullcalendar/interaction.min.js"></script>
+    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+    <script src="../../assets/js/plugins/jquery-jvectormap.js"></script>
+    <!--  Plugin for the Bootstrap Table -->
+    <script src="../../assets/js/plugins/nouislider.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+    <!-- Chart JS -->
+    <script src="../../assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="../../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../../assets/js/paper-dashboard.min.js?v=2.1.1" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../../assets/demo/demo.js"></script>
+    <!--#endregion -->
+    <!--
+    <script src="../../assets/js/nuevo-equipo-ingreso.js"></script>
+    <script src="../../assets/js/pages/ingreso.js"></script>
+    -->
+    <script src="../../assets/js/pages/usuarios.js"></script>
+</body>
+
+</html>
