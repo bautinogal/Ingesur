@@ -180,6 +180,16 @@ function getFormData() {
     return result;
 }
 
+function editarEquipo(equipo) {
+    console.log("editarEquipo: equipo %s", JSON.stringify(equipo));
+    const index = ingreso.equipos.indexOf(equipo);
+    console.log("editarEquipo: index %s", index);
+    if (index > -1) {
+        ingreso.equipos.splice(index, 1);
+    }
+    drawTable(ingreso.equipos);
+}
+
 function eliminarEquipo(equipo) {
     console.log("eliminarEquipo: equipo %s", JSON.stringify(equipo));
     const index = ingreso.equipos.indexOf(equipo);

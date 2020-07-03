@@ -136,7 +136,7 @@ const tableEquipos = document.getElementById('lista-equipos');
 
 
 const getUsers = new Promise((onSuccess, onFailed) => {
-    var url = 'https://dabau-api.herokuapp.com/api/user'; //TODO: agrear params ?desde=2&hasta=3
+    var url = 'https://dabau-api.herokuapp.com/api/user?desde=4'; //TODO: agrear params ?desde=2&hasta=3
 
     var params = {
         method: 'GET', // or 'PUT'
@@ -148,8 +148,8 @@ const getUsers = new Promise((onSuccess, onFailed) => {
 
     fetch(url, params)
         .then((res) => res.json())
-        .then((jsonData) => console.log(jsonData))
-        .catch((error) => console.log("error: " + error));
+        .then(onSuccess)
+        .catch(onFailed);
 });
 
 function showModal() {
@@ -255,4 +255,6 @@ abrirModalBtn.addEventListener('click', () => getUsers.then((res) => console.log
 closeModal.addEventListener('click', hideModal);
 //btnAgregarEquipo.addEventListener('click', agregarEquipo);
 
-drawTable(usuarios);
+getUsers
+    .then((UsersObj) => { console.log("UsersObj: ", UsersObj); return drawTable(UsersObj.users) })
+    .catch((err) => console.log('getUsers GET error: ', err))
