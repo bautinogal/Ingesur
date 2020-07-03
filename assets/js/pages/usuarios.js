@@ -134,6 +134,24 @@ const closeModal = document.getElementById('close-modal');
 const btnAgregarEquipo = document.getElementById('submitModalBtn');
 const tableEquipos = document.getElementById('lista-equipos');
 
+
+const getUsers = new Promise((onSuccess, onFailed) => {
+    var url = 'https://dabau-api.herokuapp.com/api/user'; //TODO: agrear params ?desde=2&hasta=3
+
+    var params = {
+        method: 'GET', // or 'PUT'
+        //  body: JSON.stringify(data), // data can be `string` or {object}!
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    fetch(url, params)
+        .then((res) => res.json())
+        .then((jsonData) => console.log(jsonData))
+        .catch((error) => console.log("error: " + error));
+});
+
 function showModal() {
     console.log("showModal");
     modal.classList.remove("d-block");
@@ -233,21 +251,8 @@ function agregarEquipo() {
     drawTable(ingreso.equipos);
 }
 
-var url = 'https://example.com/profile';
-var data = { username: 'example' };
-
-fetch(url, {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-
-abrirModalBtn.addEventListener('click', showModal);
+abrirModalBtn.addEventListener('click', () => getUsers.then((res) => console.log(res)).catch((err) => console.log(err)) /*showModal*/ );
 closeModal.addEventListener('click', hideModal);
-btnAgregarEquipo.addEventListener('click', agregarEquipo);
+//btnAgregarEquipo.addEventListener('click', agregarEquipo);
 
 drawTable(usuarios);
