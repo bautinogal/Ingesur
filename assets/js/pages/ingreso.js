@@ -180,14 +180,8 @@ function getFormData() {
     return result;
 }
 
-function editarEquipo(equipo) {
-    console.log("editarEquipo: equipo %s", JSON.stringify(equipo));
-    const index = ingreso.equipos.indexOf(equipo);
-    console.log("editarEquipo: index %s", index);
-    if (index > -1) {
-        ingreso.equipos.splice(index, 1);
-    }
-    drawTable(ingreso.equipos);
+function editarEquipo() {
+
 }
 
 function eliminarEquipo(equipo) {
@@ -279,6 +273,9 @@ function submit() {
     result.despachante = formToData(formDespachante);
     result.receptor = {};
     result.equipos = ingreso.equipos;
+
+
+    location.reload();
     console.log("ingreso@submit: result: %s", JSON.stringify(result));
 
 }
