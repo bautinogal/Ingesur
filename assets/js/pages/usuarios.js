@@ -28,7 +28,7 @@ let ServerLogin = function(username, password) { //A: manda un POST al endpoint 
 
     })
 }
-ServerLogin("jbnogal@gmail.com", "123456");
+ServerLogin("admin@admin.com", "123");
 
 //-----------------------------------------------------------------------------
 
@@ -158,7 +158,7 @@ function drawTable(usuarios, pag) {
                 sector.appendChild(document.createTextNode(usuario.sector || '-'));
                 newLine.appendChild(sector);
                 var usuarioPortal = document.createElement("td");
-                usuarioPortal.appendChild(document.createTextNode(usuario.usuario || '-'));
+                usuarioPortal.appendChild(document.createTextNode(usuario.role || '-'));
                 newLine.appendChild(usuarioPortal);
                 var mail = document.createElement("td");
                 mail.appendChild(document.createTextNode(usuario.mail || '-'));
@@ -215,9 +215,9 @@ function addUser(user, cb) {
         'user': user
     }
 
-    data.user.username = data.user.mail;
-    data.user.password = data.user.pass;
-
+    data.user.username = data.user.mail || "-";
+    data.user.password = data.user.pass || "-";
+    data.user.role = data.user.role || "-";
     var params = {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!

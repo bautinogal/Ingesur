@@ -28,7 +28,7 @@ let ServerLogin = function(username, password) { //A: manda un POST al endpoint 
 
     })
 }
-ServerLogin("jbnogal@gmail.com", "123456");
+ServerLogin("jbnogal@gcomentarios.com", "123456");
 
 //-----------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ const userForm = document.getElementById('form-usuario');
 
 
 const getUsers = new Promise((onSuccess, onFailed) => {
-    var url = 'https://dabau-api.herokuapp.com/api/user?desde=0&hasta=99999999'; //TODO: sacar el 9999999999999
+    var url = 'https://dabau-api.herokuapp.com/api/equipos?desde=0&hasta=99999999'; //TODO: sacar el 9999999999999
 
     var params = {
         method: 'GET', // or 'PUT'
@@ -74,7 +74,7 @@ const getUsers = new Promise((onSuccess, onFailed) => {
     fetch(url, params)
         .then((res) => res.json())
         .then((res) => {
-            usuarios = res.users;
+            usuarios = res.equipos;
             onSuccess(res);
         })
         .catch(onFailed);
@@ -142,33 +142,31 @@ function drawTable(usuarios, pag) {
             if (i >= from && i < to) {
                 console.log("ingreso@drawTable: agregando linea: %s", JSON.stringify(usuario));
                 var newLine = document.createElement("tr");
-                var nombre = document.createElement("td");
-                nombre.appendChild(document.createTextNode(usuario.nombre || '-'));
-                newLine.appendChild(nombre);
-                var apellido = document.createElement("td");
-                apellido.appendChild(document.createTextNode(usuario.apellido || '-'));
-                newLine.appendChild(apellido);
-                var dni = document.createElement("td");
-                dni.appendChild(document.createTextNode(usuario.dni || '-'));
-                newLine.appendChild(dni);
+                var grupo = document.createElement("td");
+                grupo.appendChild(document.createTextNode(usuario.grupo || '-'));
+                newLine.appendChild(grupo);
+                var marca = document.createElement("td");
+                marca.appendChild(document.createTextNode(usuario.marca || '-'));
+                newLine.appendChild(marca);
+                var modelo = document.createElement("td");
+                modelo.appendChild(document.createTextNode(usuario.modelo || '-'));
+                newLine.appendChild(modelo);
                 var empresa = document.createElement("td");
                 empresa.appendChild(document.createTextNode(usuario.empresa || '-'));
                 newLine.appendChild(empresa);
-                var sector = document.createElement("td");
-                sector.appendChild(document.createTextNode(usuario.sector || '-'));
-                newLine.appendChild(sector);
-                var usuarioPortal = document.createElement("td");
-                usuarioPortal.appendChild(document.createTextNode(usuario.usuario || '-'));
-                newLine.appendChild(usuarioPortal);
-                var mail = document.createElement("td");
-                mail.appendChild(document.createTextNode(usuario.mail || '-'));
-                newLine.appendChild(mail);
-                var telefono = document.createElement("td");
-                telefono.appendChild(document.createTextNode(usuario.telefono || '-'));
-                newLine.appendChild(telefono);
-                var fechaNac = document.createElement("td");
-                fechaNac.appendChild(document.createTextNode(usuario.fechaNac || '-'));
-                newLine.appendChild(fechaNac);
+                var NoSerie = document.createElement("td");
+                NoSerie.appendChild(document.createTextNode(usuario.serialNo || '-'));
+                newLine.appendChild(NoSerie);
+                var diasEntreCal = document.createElement("td");
+                diasEntreCal.appendChild(document.createTextNode(usuario.diasEntreCal || '-'));
+                newLine.appendChild(diasEntreCal);
+                var comentarios = document.createElement("td");
+                comentarios.appendChild(document.createTextNode(usuario.comentarios || '-'));
+                newLine.appendChild(comentarios);
+                var status = document.createElement("td");
+                status.appendChild(document.createTextNode(usuario.status || '-'));
+                newLine.appendChild(status);
+
 
 
                 var editCell = document.createElement("td");
@@ -182,16 +180,6 @@ function drawTable(usuarios, pag) {
                 editBtn.appendChild(editBtnInfo);
                 //TODO: poder editar el equipo
                 editCell.appendChild(editBtn);
-
-                //Agrego el boton para borrar el equipo
-                var eraseBtn = document.createElement("button");
-                eraseBtn.rel = "tooltip";
-                eraseBtn.className = "btn btn-danger btn-icon btn-sm ";
-                var eraseBtnInfo = document.createElement("i");
-                eraseBtnInfo.className = "fa fa-times";
-                eraseBtn.appendChild(eraseBtnInfo);
-                eraseBtn.addEventListener('click', () => eliminarEquipo(equipo));
-                editCell.appendChild(eraseBtn);
 
                 newLine.appendChild(editCell);
 
@@ -215,7 +203,7 @@ function addUser(user, cb) {
         'user': user
     }
 
-    data.user.username = data.user.mail;
+    data.user.username = data.user.comentarios;
     data.user.password = data.user.pass;
 
     var params = {
@@ -244,14 +232,13 @@ function updateTable(onSucces) {
         .then((UsersObj) => {
             console.log("UsersObj: ", UsersObj);
             if (onSucces != null)
-                onSucces(UsersObj.users);
-            return drawTable(UsersObj.users, 0);
+                onSucces(UsersObj.equipos);
+            return drawTable(UsersObj.equipos, 0);
         })
         .catch((err) => console.log('getUsers GET error: ', err))
 }
 
 updateTable((users) => console.log("UpdateTable with: %s", users));
 
-abrirModalBtn.addEventListener('click', showModal);
 closeModal.addEventListener('click', hideModal);
 btnAgregarEquipo.addEventListener('click', agregarUsuario);

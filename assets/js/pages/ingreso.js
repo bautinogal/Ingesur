@@ -268,15 +268,28 @@ function agregarEquipo() {
     drawTable(ingreso.equipos);
 }
 
-function submit() {
+function submit(e) {
+    e.preventDefault();
     result = {};
     result.despachante = formToData(formDespachante);
     result.receptor = {};
     result.equipos = ingreso.equipos;
 
+    var url = "https://dabau-api.herokuapp.com/api/reception"
 
-    location.reload();
-    console.log("ingreso@submit: result: %s", JSON.stringify(result));
+    var params = {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(result), // data can be `string` or {object}!
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    console.log("Submit: body: %s", JSON.stringify(result));
+    fetch(url, params)
+        .then((res) => res.json())
+        .then((res) => location.reload())
+        .catch((err) => console.log(err));
 
 }
 btnAgregarEquipo.addEventListener('click', agregarEquipo);

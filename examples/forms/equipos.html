@@ -349,315 +349,47 @@
                     <div class="col-md-12">
                         <div class="card" id="table-equipos">
                             <div class="card-header">
-                                <div class="row justify-content-md-around align-items-md-center">
+                                <div class="row ">
                                     <div class="col-md-3">
-                                        <div class="input-group no-border">
+                                        <div class="input-group no-border pull-left">
                                             <input type="text" value="" placeholder="Buscar..." class="form-control pull-left">
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                    </div>
-                                    <div class="col-md-1">
-                                        <button id="cargar-nuevo-equipo-btn" style="background-color: #6bd098;" class="btn btn-circle"><i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table" id="equiposTable">
+                                    <table class="table table-bordered table-striped" id="equiposTable">
                                         <thead class="text-primary">
                                             <th class="text-left">
-                                                Nombre
+                                                Grupo
                                             </th>
                                             <th class="text-left">
-                                                Apellido
+                                                Marca
                                             </th>
                                             <th class="text-left">
-                                                DNI
+                                                Modelo
                                             </th>
                                             <th class="text-left">
                                                 Empresa
                                             </th>
                                             <th class="text-left">
-                                                Sector
+                                                No. Serie
                                             </th>
                                             <th class="text-left">
-                                                Rol
+                                                Duración Cal.
                                             </th>
                                             <th class="text-left">
-                                                Mail
+                                                Comentarios
                                             </th>
                                             <th class="text-left">
-                                                Telefono
+                                                Status
                                             </th>
                                             <th class="text-left">
-                                                Fecha Nac.
-                                            </th>
-                                            <th class="text-left">
-                                                Editar
+                                                Ver
                                             </th>
                                         </thead>
                                         <tbody id="lista-equipos">
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                      <i class="fa fa-edit"></i>
-                                                  </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                      <i class="fa fa-times"></i>
-                                                  </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                      <i class="fa fa-edit"></i>
-                                                  </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                      <i class="fa fa-times"></i>
-                                                  </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                  <i class="fa fa-edit"></i>
-                                              </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                  <i class="fa fa-times"></i>
-                                              </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    Juan Bautista
-                                                </td>
-                                                <td class="text-left">
-                                                    Nogal
-                                                </td>
-                                                <td class="text-left">
-                                                    36181166
-                                                </td>
-                                                <td class="text-left">
-                                                    Ventum
-                                                </td>
-                                                <td class="text-left">
-                                                    Desarrollo
-                                                </td>
-                                                <td class="text-left">
-                                                    SI
-                                                </td>
-                                                <td class="text-left">
-                                                    jbnogal@gmail.com
-                                                </td>
-                                                <td class="text-left">
-                                                    1549703070
-                                                </td>
-                                                <td class="text-left">
-                                                    11-06-1991
-                                                </td>
-                                                <td class="text-left">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                                      <i class="fa fa-edit"></i>
-                                                  </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                                      <i class="fa fa-times"></i>
-                                                  </button>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -665,15 +397,6 @@
                             <div class="card-footer">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination" id="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -778,7 +501,7 @@
     <script src="../../assets/js/nuevo-equipo-ingreso.js"></script>
     <script src="../../assets/js/pages/ingreso.js"></script>
     -->
-    <script src="../../assets/js/pages/usuarios.js"></script>
+    <script src="../../assets/js/pages/equipos.js"></script>
 </body>
 
 </html>
