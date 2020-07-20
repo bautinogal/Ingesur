@@ -1,4 +1,4 @@
-// Get DOM Elements
+/* Get DOM Elements
 const modal = document.querySelector('#cargar-nuevo-equipo-modal');
 const modalBtn = document.querySelector('#cargar-nuevo-equipo-btn');
 const closeBtn = document.querySelector('.close');
@@ -32,4 +32,4 @@ function submitModal() {
     tbody = equiposTable.getElementsByTagName("tbody");
     console.log(tbody);
     closeModal();
-}
+}*/

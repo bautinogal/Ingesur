@@ -34,6 +34,7 @@ ServerLogin("admin@admin.com", "123");
 //Autocompletado del formulario del "Despachante"
 
 //Data que le vamos a mandar al servidor con todos los datos ingresados
+
 let ingreso = {
     equipos: []
 };
@@ -181,7 +182,20 @@ function getFormData() {
 }
 
 function editarEquipo() {
-
+    console.log("editarEquipo");
+    /* swal({
+             title: "Está seguro que quiere cargar el ingreso?",
+             text: "(Si necesita editar los datos mas adelante, lo puede hacer desde las bases de datos de usuarios y equipos)",
+             icon: "warning",
+             buttons: true,
+             dangerMode: false,
+         })
+         .then((willDelete) => {
+             if (willDelete) {
+                 swal("Ingreso cargado", "", "success")
+                     .then(() => location.reload());
+             }
+         })*/
 }
 
 function eliminarEquipo(equipo) {
@@ -239,6 +253,7 @@ function drawTable(equipos) {
             editBtnInfo.className = "fa fa-edit";
             editBtn.appendChild(editBtnInfo);
             //TODO: poder editar el equipo
+            editBtn.addEventListener('click', () => editarEquipo(equipo));
             editCell.appendChild(editBtn);
 
             //Agrego el boton para borrar el equipo
@@ -288,10 +303,25 @@ function submit(e) {
     console.log("Submit: body: %s", JSON.stringify(result));
     fetch(url, params)
         .then((res) => res.json())
-        .then((res) => location.reload())
+        .then((res) => {
+            swal({
+                    title: "Está seguro que quiere cargar el ingreso?",
+                    text: "(Si necesita editar los datos mas adelante, lo puede hacer desde las bases de datos de usuarios y equipos)",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: false,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Ingreso cargado", "", "success")
+                            .then(() => location.reload());
+                    }
+                });
+        })
         .catch((err) => console.log(err));
 
 }
+
 btnAgregarEquipo.addEventListener('click', agregarEquipo);
 btnSubmit.addEventListener('click', submit);
 
@@ -347,4 +377,44 @@ function hideAlerts() {
     var succesAlert = document.getElementById("succes-alert");
     if (succesAlert) succesAlert.style.display = "none";
     //$('#succes-alert').alert('close');
+}
+
+
+//-----------------------------------------------
+
+// Get DOM Elements
+const modal = document.querySelector('#cargar-nuevo-equipo-modal');
+const modalBtn = document.querySelector('#cargar-nuevo-equipo-btn');
+const closeBtn = document.querySelector('.close');
+const modalSubmitBtn = document.querySelector('#submitModalBtn');
+const equiposTable = document.querySelector('#equiposTable');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+modalSubmitBtn.addEventListener('click', submitModal);
+
+// Open
+function openModal() {
+    modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+
+function submitModal() {
+    tbody = equiposTable.getElementsByTagName("tbody");
+    console.log(tbody);
+    closeModal();
 }
