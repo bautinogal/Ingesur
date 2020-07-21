@@ -324,4 +324,4 @@ updateTable((users) => console.log("UpdateTable with: %s", users));
 closeModal.addEventListener('click', hideModal);
 //btnAgregarEquipo.addEventListener('click', agregarUsuario);
 
-showModal(usuarios[0]);
+//showModal(usuarios[0]);
