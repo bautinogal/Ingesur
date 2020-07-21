@@ -35,6 +35,21 @@ ServerLogin("jbnogal@gcomentarios.com", "123456");
 //Data que vamos a recibir del servidor
 let usuarios = [];
 
+function jsonToForm(form, json) {
+    elements = form.elements;
+    for (let index = 0; index < elements.length; index++) {
+        const element = elements[index];
+        console.log(element.name);
+        if (json[element.name]) {
+            console.log("contains: %s", element.name);
+            element.value = json[element.name];
+        } else {
+            console.log("doesnt contains: %s", element.name);
+            element.value = "";
+        }
+    }
+}
+
 // Me devuelve un objeto con la info del form
 const formToData = function(form) {
     var formElements = form.elements;
@@ -59,6 +74,63 @@ const tableEquipos = document.getElementById('lista-equipos');
 const pagination = document.getElementById('pagination');
 const userForm = document.getElementById('form-usuario');
 
+const inputDniDespachante = document.getElementById('dni-despachante');
+const inputDniUsuario = document.getElementById('dni-usuario');
+const inputDniResponsableSeguridad = document.getElementById('dni-responsable-seguridad');
+const inputDniResponsableCompras = document.getElementById('dni-responsable-compras');
+
+const btnSubmit = document.getElementById('listo');
+
+const formSelector = document.getElementById('TipoDeEquipoDrop');
+const formA = document.getElementById('formEquipoA');
+const formB = document.getElementById('formEquipoB');
+const formC = document.getElementById('formEquipoC');
+
+
+var selectedGroup = "";
+
+const optionA = document.getElementById('optionA');
+const optionB = document.getElementById('optionB');
+const optionC = document.getElementById('optionC');
+const titulo = document.getElementById('tituloEquipo');
+var tituloText = document.createTextNode(`Equipo: Grupo A`);
+titulo.appendChild(tituloText);
+
+optionA.addEventListener('click', () => showFormForGroup('Multigas-Monogas-Fijos'));
+optionB.addEventListener('click', () => showFormForGroup('Autónomos'));
+optionC.addEventListener('click', () => showFormForGroup('Varios'));
+
+function showFormForGroup(group) {
+    console.log("showFormForGroup: " + group);
+    selectedGroup = group;
+    tituloText.nodeValue = `Equipo: ${group}`;
+
+    switch (group) {
+        case "Multigas-Monogas-Fijos":
+            formA.style.display = "block";
+            formB.style.display = "none";
+            formC.style.display = "none";
+            break;
+        case "Autónomos":
+            formA.style.display = "none";
+            formB.style.display = "block";
+            formC.style.display = "none";
+            break;
+        case "Varios":
+            formA.style.display = "none";
+            formB.style.display = "none";
+            formC.style.display = "block";
+            break;
+        default:
+            formA.style.display = "block";
+            formB.style.display = "none";
+            formC.style.display = "none";
+            break;
+    }
+}
+
+showFormForGroup("Multigas-Monogas-Fijos");
+
 
 const getUsers = new Promise((onSuccess, onFailed) => {
     var url = 'https://dabau-api.herokuapp.com/api/equipos?desde=0&hasta=99999999'; //TODO: sacar el 9999999999999
@@ -80,11 +152,20 @@ const getUsers = new Promise((onSuccess, onFailed) => {
         .catch(onFailed);
 });
 
-function showModal() {
+function showModal(data) {
+    modal.style.display = 'block';
+    jsonToForm(inputDniUsuario.form, {});
+    jsonToForm(inputDniResponsableSeguridad.form, {});
+    jsonToForm(inputDniResponsableCompras.form, {});
+    jsonToForm(formA, {});
+    jsonToForm(formB, {});
+    jsonToForm(formC, {});
     console.log("showModal");
     modal.classList.remove("d-block");
     modal.classList.remove("d-none");
     modal.classList.add("d-block");
+    //document.getElementById("form-usuario").innerHTML = "";
+
 }
 
 function hideModal() {
@@ -241,4 +322,6 @@ function updateTable(onSucces) {
 updateTable((users) => console.log("UpdateTable with: %s", users));
 
 closeModal.addEventListener('click', hideModal);
-btnAgregarEquipo.addEventListener('click', agregarUsuario);
+//btnAgregarEquipo.addEventListener('click', agregarUsuario);
+
+showModal(usuarios[0]);

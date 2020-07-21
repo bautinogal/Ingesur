@@ -181,21 +181,31 @@ function getFormData() {
     return result;
 }
 
-function editarEquipo() {
-    console.log("editarEquipo");
-    /* swal({
-             title: "Está seguro que quiere cargar el ingreso?",
-             text: "(Si necesita editar los datos mas adelante, lo puede hacer desde las bases de datos de usuarios y equipos)",
-             icon: "warning",
-             buttons: true,
-             dangerMode: false,
-         })
-         .then((willDelete) => {
-             if (willDelete) {
-                 swal("Ingreso cargado", "", "success")
-                     .then(() => location.reload());
-             }
-         })*/
+function jsonToForm(form, json) {
+    elements = form.elements;
+    for (let index = 0; index < elements.length; index++) {
+        const element = elements[index];
+        console.log(element.name);
+        if (json[element.name]) {
+            console.log("contains: %s", element.name);
+            element.value = json[element.name];
+        } else {
+            console.log("doesnt contains: %s", element.name);
+            element.value = "";
+        }
+    }
+}
+
+function editarEquipo(equipo) {
+    selectedEquipo = ingreso.equipos.indexOf(equipo);
+    data = ingreso.equipos[selectedEquipo];
+    openModal();
+    jsonToForm(inputDniUsuario.form, data.usuario);
+    jsonToForm(inputDniResponsableSeguridad.form, data.resSeguridad);
+    jsonToForm(inputDniResponsableCompras.form, data.resCompras);
+    jsonToForm(formA, data.equipo);
+    jsonToForm(formB, data.equipo);
+    jsonToForm(formC, data.equipo);
 }
 
 function eliminarEquipo(equipo) {
@@ -277,9 +287,18 @@ function drawTable(equipos) {
     }
 }
 
+var selectedEquipo = null;
+
 function agregarEquipo() {
     var formData = getFormData();
-    ingreso.equipos.push(formData);
+    if (selectedEquipo != null) {
+        console.log("selectedEquipo: %s", selectedEquipo);
+        ingreso.equipos[selectedEquipo] = formData;
+    } else {
+        console.log("selectedEquipo: null");
+        ingreso.equipos.push(formData);
+    }
+    selectedEquipo = null;
     drawTable(ingreso.equipos);
 }
 
@@ -379,7 +398,6 @@ function hideAlerts() {
     //$('#succes-alert').alert('close');
 }
 
-
 //-----------------------------------------------
 
 // Get DOM Elements
@@ -398,17 +416,25 @@ modalSubmitBtn.addEventListener('click', submitModal);
 // Open
 function openModal() {
     modal.style.display = 'block';
+    jsonToForm(inputDniUsuario.form, {});
+    jsonToForm(inputDniResponsableSeguridad.form, {});
+    jsonToForm(inputDniResponsableCompras.form, {});
+    jsonToForm(formA, {});
+    jsonToForm(formB, {});
+    jsonToForm(formC, {});
 }
 
 // Close
 function closeModal() {
     modal.style.display = 'none';
+    selectedEquipo = null;
 }
 
 // Close If Outside Click
 function outsideClick(e) {
     if (e.target == modal) {
         modal.style.display = 'none';
+        selectedEquipo = null;
     }
 }
 

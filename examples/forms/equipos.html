@@ -33,13 +33,14 @@
             <div class="modal-body">
                 <!-- V: Datos de los interesados -->
                 <div class="row">
+
                     <div class="col-md-12">
                         <div class="row">
                             <!-- V: Datos del usuario -->
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-header ">
-                                        <h4 class="card-title">Editar Usuario</h4>
+                                        <h4 class="card-title">Usuario</h4>
                                     </div>
                                     <div class="card-body ">
                                         <form class="form-horizontal container" id="form-usuario">
@@ -125,19 +126,99 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- V: Datos del resp seguridad -->
+                            <div class="col-md-4" id="form-responsable-seguridad">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 class="card-title">Responsable Seguridad</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <form class="form-horizontal container" id="FormResSeguridad">
+                                            <div class="row">
+                                                <div class="col-md-12">
                                                     <div class="row">
-                                                        <label class="col-md-3 col-form-label">Rol</label>
+                                                        <label class="col-md-3 col-form-label">DNI</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <input type="text" name="role" class="form-control" placeholder="Rol">
+                                                                <input id="dni-responsable-seguridad" name="dni" type="number" class="form-control" placeholder="DNI">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label class="col-md-3 col-form-label">Contraseña</label>
+                                                        <label class="col-md-3 col-form-label">Nombre</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <input type="password" name="pass" class="form-control" placeholder="Contraseña">
+                                                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Apellido</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Fecha Nac.</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="date" name="fechaNacimiento" class="form-control" placeholder="Fecha">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Empresa</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="empresa" class="form-control" placeholder="Empresa">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Sector</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="sector" class="form-control" placeholder="Sector">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Posición</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="posicion" class="form-control" placeholder="Posición">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Mail</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="email" name="mail" class="form-control" placeholder="Mail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Teléfono</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Dirección</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="direccion" class="form-control" placeholder="Dirección">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -145,8 +226,432 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer" style="align-content: flex-end;">
-                                        <button type="button" id="submitModalBtn" class="btn btn-primary pull-right">Listo</button>
+                                </div>
+                            </div>
+                            <!-- V: Datos del resp compras -->
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 class="card-title">Responsable Compras</h4>
+                                    </div>
+                                    <div class="card-body container">
+                                        <form class="form-horizontal container" id="FormResCompras">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">DNI</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input id="dni-responsable-compras" name="dni" type="number" class="form-control" placeholder="DNI">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Nombre</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Apellido</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Fecha Nac.</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="date" name="fechaNacimiento" class="form-control" placeholder="Fecha">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Empresa</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="empresa" class="form-control" placeholder="Empresa">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Sector</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="sector" class="form-control" placeholder="Sector">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Posición</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="posicion" class="form-control" placeholder="Posición">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Mail</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="email" name="mail" class="form-control" placeholder="Mail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Teléfono</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-md-3 col-form-label">Dirección</label>
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="text" name="direccion" class="form-control" placeholder="Dirección">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- V: Dropdown para tipos de equipos-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-3">
+                        <div class="dropdown">
+                            <button id="TipoDeEquipoDrop" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Grupo
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="TipoDeEquipo">
+                                <a class="dropdown-item" id="optionA">Mono-Multi-Fijo</a>
+                                <a class="dropdown-item" id="optionB">Autónomos</a>
+                                <a class="dropdown-item" id="optionC">Varios</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <!-- V: Datos del equipo -->
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 id="tituloEquipo" class="card-title"></h4>
+                                    </div>
+                                    <div class="card-body container">
+                                        <div class="container-fluid">
+                                            <!-- Formulario Grupo Monogas-Multigas-Fijos-->
+                                            <form class="form-horizontal" id="formEquipoA">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Empresa</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="empresa" type="text" class="form-control" placeholder="Empresa">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Sector</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="sector" type="text" class="form-control" placeholder="Sector">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Otra ID</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="otraID" type="text" class="form-control" placeholder="Otra ID">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Equipamiento</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="equipamiento" type="text" class="form-control" placeholder="Equipamiento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Marca</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="marca" type="text" class="form-control" placeholder="Marca">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Modelo</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="modelo" type="text" class="form-control" placeholder="Modelo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">S/N</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Calibración en Dias</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="diasEntreCal" type="number" class="form-control" placeholder="Calibración en Dias">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Remito</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="remito" type="text" class="form-control" placeholder="Remito">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!-- Formulario Autónomos-->
+                                            <form class="form-horizontal" id="formEquipoB">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Empresa</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="empresa" type="text" class="form-control" placeholder="Empresa">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Sector</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="sector" type="text" class="form-control" placeholder="Sector">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Otra ID</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="otraId" type="text" class="form-control" placeholder="Otra ID">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Equipamiento</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="Equipamiento" type="text" class="form-control" placeholder="Equipamiento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Marca</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="marca" type="text" class="form-control" placeholder="Marca">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">RN</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="rn" type="text" class="form-control" placeholder="RN">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Presión de Trabajo (PSI)</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="presionTrabajo" type="number" class="form-control" placeholder="Presión de Trabajo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Modelo</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="modelo" type="text" class="form-control" placeholder="Modelo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">S/N</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Cambio de aire en Dias</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="cambioDeAireEnDias" type="number" class="form-control" placeholder="Cambio de aire en Dias">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Remito</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="remito" type="text" class="form-control" placeholder="Remito">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!-- Formulario Varios-->
+                                            <form class="form-horizontal" id="formEquipoC">
+                                                <div class="row" id="formEquipoC">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Empresa</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="empresa" type="text" class="form-control" placeholder="Empresa">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Sector</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="sector" type="text" class="form-control" placeholder="Sector">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">S/N</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="serialNo" type="text" class="form-control" placeholder="S/N">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Otra ID</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="otraId" type="text" class="form-control" placeholder="Otra ID">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Marca</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="marca" type="text" class="form-control" placeholder="Marca">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Modelo</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="modelo" type="text" class="form-control" placeholder="Modelo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Equipamiento</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="equipamiento" type="text" class="form-control" placeholder="Equipamiento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Calibración en Dias</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="diasEntreCal" type="number" class="form-control" placeholder="Calibración en Dias">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Comentarios</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="comentarios" type="text" class="form-control" placeholder="Comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-md-3 col-form-label">Remito</label>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input name="remito" type="text" class="form-control" placeholder="Remito">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row align-content-md-end">
+                                            <div class="col-md-10">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="btn btn-info btn-round" style="width: 80%;" id="submitModalBtn"> Listo! </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
