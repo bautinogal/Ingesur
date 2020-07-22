@@ -117,7 +117,9 @@ function autoCompleteOnInput(form, inputField) {
             redirect: 'follow',
             headers: {
                 'Content-Type': 'application/json',
-                'token': token
+                'token': token,
+                'mode': 'no-cors',
+                'Access-Control-Allow-Origin': '*'
             }
         };
         const url = "https://dabau-api.herokuapp.com/api/user?buscar=" + inputField.value;
@@ -437,7 +439,6 @@ function outsideClick(e) {
         selectedEquipo = null;
     }
 }
-
 
 function submitModal() {
     tbody = equiposTable.getElementsByTagName("tbody");

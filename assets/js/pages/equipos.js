@@ -256,11 +256,22 @@ function drawTable(usuarios, pag) {
                 var editBtn = document.createElement("button");
                 editBtn.rel = "tooltip";
                 editBtn.className = "btn btn-success btn-icon btn-sm ";
+                editBtn.addEventListener('click', () => showModal(usuarios[0]));
                 var editBtnInfo = document.createElement("i");
                 editBtnInfo.className = "fa fa-edit";
                 editBtn.appendChild(editBtnInfo);
-                //TODO: poder editar el equipo
                 editCell.appendChild(editBtn);
+
+
+                var eraseBtn = document.createElement("button");
+                eraseBtn.rel = "tooltip";
+                eraseBtn.className = "btn btn-info btn-icon btn-sm ";
+                var eraseBtnInfo = document.createElement("i");
+                eraseBtnInfo.className = "nc nc-paper ";
+                eraseBtn.appendChild(eraseBtnInfo);
+                eraseBtn.addEventListener('click', () => modalCertificados(usuarios[0]));
+                editCell.appendChild(eraseBtn);
+
 
                 newLine.appendChild(editCell);
 
@@ -319,6 +330,17 @@ function updateTable(onSucces) {
         .catch((err) => console.log('getUsers GET error: ', err))
 }
 
+function modalCertificados() {
+    modalCert = document.getElementById("carga-archivos");
+    modalCert.style.display = 'block';
+    //document.getElementById("form-usuario").innerHTML = "";
+}
+
+function closeModalCertificados() {
+    modalCert.style.display = 'none';
+}
+
+document.getElementById("carga-archivos-close-modal").addEventListener('click', closeModalCertificados);
 updateTable((users) => console.log("UpdateTable with: %s", users));
 
 closeModal.addEventListener('click', hideModal);
