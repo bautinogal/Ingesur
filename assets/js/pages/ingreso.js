@@ -110,32 +110,35 @@ function autoComplete(data, map, root, fields) {
 
 //Función que autocompleta el form si el servidor encuentra ese field en la bd
 function autoCompleteOnInput(form, inputField) {
+
     inputField.addEventListener('input', function(e) {
-        const requestOptions = {
-            method: 'GET',
-            //body: JSON.stringify(raw),
-            redirect: 'follow',
-            headers: {
-                'Content-Type': 'application/json',
-                'token': token,
-                'mode': 'no-cors',
-                'Access-Control-Allow-Origin': '*'
-            }
-        };
-        const url = "https://dabau-api.herokuapp.com/api/user?buscar=" + inputField.value;
-        const fetchPromise = fetch(url, requestOptions);
-        const fields = form.querySelectorAll('input');
-        console.log("ingreso@autocomplete: fetching from: %s", url);
-        fetchPromise
-            .then(response => response.json())
-            .then(data => {
-                if (data.users.length > 0)
-                    autoComplete(data.users[0], userDataMap, form, fields);
-                else
-                    console.log("ingreso@autocomplete: User not found with document: %s", inputField.value)
-            })
-            .catch(e => console.log("ingreso@autocomplete: Error parsing response: %s", e))
+        if (inputField.value != "") {
+            const requestOptions = {
+                method: 'GET',
+                //body: JSON.stringify(raw),
+                redirect: 'follow',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'token': token,
+                }
+            };
+            const url = `https://dabau-api.herokuapp.com/api/user?q= {"dni": "${inputField.value}"} `
+            const fetchPromise = fetch(url, requestOptions);
+            const fields = form.querySelectorAll('input');
+            console.log("ingreso@autocomplete: fetching from: %s", url);
+            fetchPromise
+                .then(response => response.json())
+                .then(data => {
+                    if (data.users.length > 0)
+                        autoComplete(data.users[0], userDataMap, form, fields);
+                    else
+                        console.log("ingreso@autocomplete: User not found with document: %s", inputField.value)
+                })
+                .catch(e => console.log("ingreso@autocomplete: Error parsing response: %s", e))
+        }
     });
+
+
 }
 
 autoCompleteOnInput(formDespachante, inputDniDespachante);

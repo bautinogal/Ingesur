@@ -94,14 +94,25 @@ function hideModal() {
     modal.classList.add("d-none");
 }
 
-function eliminarEquipo(equipo) {
-    console.log("eliminarEquipo: equipo %s", JSON.stringify(equipo));
-    const index = ingreso.equipos.indexOf(equipo);
-    console.log("eliminarEquipo: index %s", index);
-    if (index > -1) {
-        ingreso.equipos.splice(index, 1);
-    }
-    drawTable(ingreso.equipos);
+function eliminarEquipo(pos) {
+    console.log("eliminarEquipo: index %s", pos);
+    console.log(usuarios[pos]);
+    const requestOptions = {
+        method: 'DELETE',
+        //body: JSON.stringify(raw),
+        redirect: 'follow',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': token,
+        }
+    };
+    const url = `https://dabau-api.herokuapp.com/api/user?q= {"_id": "${usuarios[pos]._id}"} `
+    const fetchPromise = fetch(url, requestOptions);
+    fetchPromise
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .then(res => updateTable())
+        .catch(e => console.log("ingreso@autocomplete: Error parsing response: %s", e))
 }
 
 function drawPagination(index, pageCount) {
@@ -190,7 +201,8 @@ function drawTable(usuarios, pag) {
                 var eraseBtnInfo = document.createElement("i");
                 eraseBtnInfo.className = "fa fa-times";
                 eraseBtn.appendChild(eraseBtnInfo);
-                eraseBtn.addEventListener('click', () => eliminarEquipo(equipo));
+                var temp = i;
+                eraseBtn.addEventListener('click', (e) => eliminarEquipo(temp));
                 editCell.appendChild(eraseBtn);
 
                 newLine.appendChild(editCell);
