@@ -50,6 +50,18 @@ const inputDniUsuario = document.getElementById('dni-usuario');
 const inputDniResponsableSeguridad = document.getElementById('dni-responsable-seguridad');
 const inputDniResponsableCompras = document.getElementById('dni-responsable-compras');
 
+
+const receptorName = document.getElementById("receptor-name");
+receptorName.innerHTML = "Gonzalez N.";
+
+const date = document.getElementById("date");
+const time = document.getElementById("time");
+const interval = setInterval(function() {
+    var dt = new Date();
+    date.innerHTML = dt.toLocaleDateString();
+    time.innerHTML = dt.toLocaleTimeString();
+}, 500)
+
 // Uso esta función para mapear los datos de los usuarios que vienen de la bd con los campos de los formularios 
 //(uso los placeholders para identificarlos)
 const userDataMap = function(field) {
@@ -201,6 +213,18 @@ function jsonToForm(form, json) {
     }
 }
 
+function getReceptorData() {
+    var result = {};
+    result.nombre = "";
+    result.apellido = "";
+    var dt = new Date();
+    result.date = dt.toLocaleDateString();
+    result.time = dt.toLocaleTimeString();
+    result.lugar = document.getElementById('lugar').innerHTML;
+    result.comentarios = document.getElementById('comentarios').innerHTML;
+    return result;
+}
+
 function editarEquipo(equipo) {
     selectedEquipo = ingreso.equipos.indexOf(equipo);
     data = ingreso.equipos[selectedEquipo];
@@ -311,7 +335,7 @@ function submit(e) {
     e.preventDefault();
     result = {};
     result.despachante = formToData(formDespachante);
-    result.receptor = {};
+    result.receptor = getReceptorData();
     result.equipos = ingreso.equipos;
 
     var url = "https://dabau-api.herokuapp.com/api/reception"
