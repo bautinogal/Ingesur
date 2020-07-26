@@ -37,17 +37,20 @@ let usuarios = [];
 
 function jsonToForm(form, json) {
     elements = form.elements;
-    for (let index = 0; index < elements.length; index++) {
-        const element = elements[index];
-        console.log(element.name);
-        if (json[element.name]) {
-            console.log("contains: %s", element.name);
-            element.value = json[element.name];
-        } else {
-            console.log("doesnt contains: %s", element.name);
-            element.value = "";
+    if (json) {
+        for (let index = 0; index < elements.length; index++) {
+            const element = elements[index];
+            console.log(element.name);
+            if (json[element.name]) {
+                console.log("contains: %s", element.name);
+                element.value = json[element.name];
+            } else {
+                console.log("doesnt contains: %s", element.name);
+                element.value = "";
+            }
         }
     }
+
 }
 
 // Me devuelve un objeto con la info del form
@@ -85,7 +88,6 @@ const formSelector = document.getElementById('TipoDeEquipoDrop');
 const formA = document.getElementById('formEquipoA');
 const formB = document.getElementById('formEquipoB');
 const formC = document.getElementById('formEquipoC');
-
 
 var selectedGroup = "";
 
@@ -131,7 +133,6 @@ function showFormForGroup(group) {
 
 showFormForGroup("Multigas-Monogas-Fijos");
 
-
 const getUsers = new Promise((onSuccess, onFailed) => {
     var url = 'https://dabau-api.herokuapp.com/api/equipos?desde=0&hasta=99999999'; //TODO: sacar el 9999999999999
 
@@ -154,13 +155,13 @@ const getUsers = new Promise((onSuccess, onFailed) => {
 
 function showModal(data) {
     modal.style.display = 'block';
-    jsonToForm(inputDniUsuario.form, {});
-    jsonToForm(inputDniResponsableSeguridad.form, {});
-    jsonToForm(inputDniResponsableCompras.form, {});
-    jsonToForm(formA, {});
-    jsonToForm(formB, {});
-    jsonToForm(formC, {});
-    console.log("showModal");
+    jsonToForm(inputDniUsuario.form, data.usuario);
+    jsonToForm(inputDniResponsableSeguridad.form, data.resSeguridad);
+    jsonToForm(inputDniResponsableCompras.form, data.resCompras);
+    jsonToForm(formA, data); //TODO: deveria ser data.equipo... NO data
+    jsonToForm(formB, data);
+    jsonToForm(formC, data);
+    console.log("showModal: %s", JSON.stringify(data));
     modal.classList.remove("d-block");
     modal.classList.remove("d-none");
     modal.classList.add("d-block");
@@ -248,15 +249,14 @@ function drawTable(usuarios, pag) {
                 status.appendChild(document.createTextNode(usuario.status || '-'));
                 newLine.appendChild(status);
 
-
-
                 var editCell = document.createElement("td");
 
                 //Agrego el boton para editar el equipo
                 var editBtn = document.createElement("button");
                 editBtn.rel = "tooltip";
                 editBtn.className = "btn btn-success btn-icon btn-sm ";
-                editBtn.addEventListener('click', () => showModal(usuarios[0]));
+                var pos = i;
+                editBtn.addEventListener('click', () => showModal(usuarios[pos]));
                 var editBtnInfo = document.createElement("i");
                 editBtnInfo.className = "fa fa-edit";
                 editBtn.appendChild(editBtnInfo);
