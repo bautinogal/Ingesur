@@ -80,6 +80,24 @@ const getUsers = new Promise((onSuccess, onFailed) => {
         .catch(onFailed);
 });
 
+function jsonToForm(form, json) {
+    elements = form.elements;
+    if (json) {
+        for (let index = 0; index < elements.length; index++) {
+            const element = elements[index];
+            console.log(element.name);
+            if (json[element.name]) {
+                console.log("contains: %s", element.name);
+                element.value = json[element.name];
+            } else {
+                console.log("doesnt contains: %s", element.name);
+                element.value = "";
+            }
+        }
+    }
+
+}
+
 function showModal() {
     console.log("showModal");
     modal.classList.remove("d-block");
@@ -192,6 +210,8 @@ function drawTable(usuarios, pag) {
                 editBtnInfo.className = "fa fa-edit";
                 editBtn.appendChild(editBtnInfo);
                 //TODO: poder editar el equipo
+                var temp = i;
+                editBtn.addEventListener('click', (e) => editarUsuario(temp));
                 editCell.appendChild(editBtn);
 
                 //Agrego el boton para borrar el equipo
@@ -201,7 +221,6 @@ function drawTable(usuarios, pag) {
                 var eraseBtnInfo = document.createElement("i");
                 eraseBtnInfo.className = "fa fa-times";
                 eraseBtn.appendChild(eraseBtnInfo);
-                var temp = i;
                 eraseBtn.addEventListener('click', (e) => eliminarEquipo(temp));
                 editCell.appendChild(eraseBtn);
 
@@ -249,6 +268,12 @@ function agregarUsuario() {
     var formData = formToData(userForm);
     addUser(formData, (res) => updateTable((users) => location.reload()));
     hideModal();
+}
+
+function editarUsuario(i) {
+    showModal();
+    form = document.getElementById("form-usuario");
+    jsonToForm(form, usuarios[i]);
 }
 
 function updateTable(onSucces) {
