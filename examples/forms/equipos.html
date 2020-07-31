@@ -663,23 +663,25 @@
         </div>
     </div>
 
-    <!-- V: Modal de carga de nuevo equipo-->
+    <!-- V: Modal de carga de nuevo archivo-->
     <div id="carga-archivos" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" id="carga-archivos-close-modal" style="color: grey;">&times;</span>
-                <h5>Monogas-Multigas-Fijos AD323</h5>
+                <h5 id="titulo-cargar-archivos">Monogas-Multigas-Fijos AD323</h5>
             </div>
             <div class="modal-body">
                 <!-- V: Datos de los interesados -->
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="file"></input>
-                        <p></p>
-                        <p>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></p>
-                        <p>Archivo 2.pdf <button style="margin-left: 3%" class="btn btn-danger btn-icon btn-sm">x</button></p>
-                        <p>Archivo 3.pdf <button style="margin-left: 3%" class="btn btn-danger btn-icon btn-sm">x</button></p>
-                        <p>Archivo 4.pdf <button style="margin-left: 3%" class="btn btn-danger btn-icon btn-sm">x</button></p>
+                        <input type="file" class="btn btn-file " id="nuevo-archivo"></input>
+                        <button id="upload-file" class="btn btn-success ">Cargar</button>
+                        <ul id="lista-archivos">
+                            <ul>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></ul>
+                            <ul>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></ul>
+                            <ul>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></ul>
+                            <ul>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></ul>
+                        </ul>
                     </div>
                 </div>
             </div>

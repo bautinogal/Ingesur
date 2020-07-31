@@ -1,34 +1,34 @@
 //Auto-login para poder pegarle al server:
 token = "";
 
-let ServerLogin = function(username, password) { //A: manda un POST al endpoint con el usuario y contraseña devuelve una promesa
-    console.log("llamando al servidor");
-    return new Promise(function(resolve, reject) {
-        var raw = {
-            username: username,
-            password: password
-        }
-        var requestOptions = {
-            method: 'POST',
-            body: JSON.stringify(raw),
-            redirect: 'follow',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+// let ServerLogin = function(username, password) { //A: manda un POST al endpoint con el usuario y contraseña devuelve una promesa
+//     console.log("llamando al servidor");
+//     return new Promise(function(resolve, reject) {
+//         var raw = {
+//             username: username,
+//             password: password
+//         }
+//         var requestOptions = {
+//             method: 'POST',
+//             body: JSON.stringify(raw),
+//             redirect: 'follow',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         };
 
-        fetch("https://dabau-api.herokuapp.com/api/login", requestOptions)
-            .then(response => response.text())
-            .then(response => {
-                token = JSON.parse(response).token;
-                console.log("Token: " + token);
-                resolve(response);
-            })
-            .catch(error => reject(error));
+//         fetch("https://dabau-api.herokuapp.com/api/login", requestOptions)
+//             .then(response => response.text())
+//             .then(response => {
+//                 token = JSON.parse(response).token;
+//                 console.log("Token: " + token);
+//                 resolve(response);
+//             })
+//             .catch(error => reject(error));
 
-    })
-}
-ServerLogin("jbnogal@gcomentarios.com", "123456");
+//     })
+// }
+// ServerLogin("jbnogal@gcomentarios.com", "123456");
 
 //-----------------------------------------------------------------------------
 
@@ -269,7 +269,7 @@ function drawTable(usuarios, pag) {
                 var eraseBtnInfo = document.createElement("i");
                 eraseBtnInfo.className = "nc nc-paper ";
                 eraseBtn.appendChild(eraseBtnInfo);
-                eraseBtn.addEventListener('click', () => modalCertificados(usuarios[0]));
+                eraseBtn.addEventListener('click', () => modalCertificados(usuarios[pos]));
                 editCell.appendChild(eraseBtn);
 
 
@@ -330,10 +330,95 @@ function updateTable(onSucces) {
         .catch((err) => console.log('getUsers GET error: ', err))
 }
 
-function modalCertificados() {
+var equipoSeleccionado;
+
+function modalCertificados(equipo) {
     modalCert = document.getElementById("carga-archivos");
+    tituloCarga = document.getElementById("titulo-cargar-archivos");
     modalCert.style.display = 'block';
-    //document.getElementById("form-usuario").innerHTML = "";
+    console.log("Modal certificados id: %s", JSON.stringify(equipo));
+    equipoSeleccionado = equipo;
+
+    tituloCarga.innerHTML = equipo.empresa + ": " + equipo.marca + " " + equipo.modelo + " (SerialNo:" + equipo.serialNo + ")";
+
+    listaArchivos = document.getElementById("lista-archivos");
+    listaArchivos.innerHTML = "";
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    const url = `https://dabau-api.herokuapp.com/api/equipos?q={"_id": "${equipoSeleccionado._id}"} `
+        //const url = `https://dabau-api.herokuapp.com/api/equipos?q={'_id': 'equipo._id'}`
+    console.log("URL: %s", url);
+
+    archivos = [];
+    fetch(url, requestOptions)
+        .then(result => result.json()
+            .then(res => archivos = res.equipos[0].archivos)
+            .then((res) => {
+                archivos.forEach(element => {
+                    var fileURL = element;
+                    var temp = element.split('/');
+                    temp = temp[temp.length - 1];
+                    temp = temp.replace(/%/g, " ");
+                    console.log(temp);
+                    var modelo = document.createElement("li");
+                    var link = document.createElement("a");
+                    link.innerHTML = temp + " ";
+                    link.href = fileURL;
+                    link.target = "_blank";
+                    link.style = "color:blue";
+                    var deleteBtn = document.createElement("button");
+                    deleteBtn.classList = "btn btn-danger btn-icon btn-sm";
+                    deleteBtn.innerHTML = "x";
+                    modelo.appendChild(link);
+                    modelo.appendChild(deleteBtn);
+                    // modelo.appendChild(document.createTextNode(temp || '-'));
+                    listaArchivos.appendChild(modelo);
+
+                });
+            }))
+        .catch(error => console.log('error', error));
+
+    //<a href="url">link text</a>
+    //<ul>Archivo 1.pdf <button style="margin-left: 3%;" class="btn btn-danger btn-icon btn-sm">x</button></ul>
+}
+
+
+
+
+
+
+// if (file) {
+//     var formdata = new FormData();
+//     formdata.append("pic", file);
+//     xhr.send(formdata);
+// }
+
+
+function cargarArchivo() {
+    console.table(equipoSeleccionado);
+    var file = document.getElementById("nuevo-archivo").files[0];
+    console.log(file);
+    if (file) {
+        let formdata = new FormData();
+        formdata.append("file", file, file.fileName);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        const url = `https://dabau-api.herokuapp.com/api/file?q={"_id": "${equipoSeleccionado._id}"} `
+        console.log("URL: %s", url);
+
+        fetch(url, requestOptions)
+            .then(response => response.text())
+            .then(result => swal("Archivo subido con exito", "", "success"))
+            .catch(error => console.log('error', error));
+    }
 }
 
 function closeModalCertificados() {
@@ -342,6 +427,8 @@ function closeModalCertificados() {
 
 document.getElementById("carga-archivos-close-modal").addEventListener('click', closeModalCertificados);
 updateTable((users) => console.log("UpdateTable with: %s", users));
+const upladFile = document.getElementById("upload-file");
+upladFile.addEventListener('click', cargarArchivo);
 
 closeModal.addEventListener('click', hideModal);
 //btnAgregarEquipo.addEventListener('click', agregarUsuario);
